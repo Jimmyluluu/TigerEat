@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/orange"
+    tools:context=".WelcomeActivity" >
+
+    <TextView
+        android:id="@+id/tv_welcome1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="71dp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="歡迎使用"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_welcome2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto_bold"
+        android:text="虎berEat!"
+        android:textColor="@color/white"
+        android:textSize="24dp"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome1" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginEnd="41dp"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/rectangle"
+        android:orientation="vertical"
+        android:paddingLeft="17dp"
+        android:paddingTop="47dp"
+        android:paddingRight="17dp"
+        android:paddingBottom="54dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_welcome2"
+        app:layout_constraintVertical_bias="0.06">
+
+        <TextView
+            android:id="@+id/tv_choices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/roboto_bold"
+            android:text="選擇用戶角色"
+            android:textColor="@color/gray_dark"
+            android:textSize="18dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="32dp"
+            android:background="@color/gray_mid" />
+
+        <Button
+            android:id="@+id/btn_costomer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/brown_dark"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="消費者"
+            android:textSize="18dp"
+            app:strokeColor="@color/brown_light"
+            app:strokeWidth="2dp" />
+
+        <Button
+            android:id="@+id/btn_deliver"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/brown_dark"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="外送員"
+            android:textSize="18dp"
+            app:strokeColor="@color/brown_light"
+            app:strokeWidth="2dp" />
+
+        <Button
+            android:id="@+id/btn_supplier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:backgroundTint="@color/brown_dark"
+            android:fontFamily="@font/roboto_bold"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="店家"
+            android:textSize="18dp"
+            app:strokeColor="@color/brown_light"
+            app:strokeWidth="2dp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
