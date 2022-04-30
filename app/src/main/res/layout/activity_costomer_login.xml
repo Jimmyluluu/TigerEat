@@ -11,20 +11,109 @@
       android:id="@+id/iv_logo"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
+      android:layout_marginTop="81dp"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
       app:srcCompat="@drawable/tiger_eat_logo" />
 
-  <Button
-      android:id="@+id/btn_costomer_login"
-      android:layout_width="wrap_content"
+  <LinearLayout
+      android:id="@+id/linearLayout"
+      android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:backgroundTint="@color/orange"
-      android:onClick="Login"
-      android:text="登入"
-      android:textColor="@color/brown_dark"
+      android:layout_marginStart="41dp"
+      android:layout_marginEnd="41dp"
+      android:layout_marginBottom="100dp"
+      android:background="@drawable/rectangle"
+      android:orientation="vertical"
+      android:paddingLeft="17dp"
+      android:paddingTop="19dp"
+      android:paddingRight="17dp"
+      app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/iv_logo" />
+      app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+      app:layout_constraintVertical_bias="0.06">
+
+    <TextView
+        android:id="@+id/tv_costomer_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/login"
+        android:textColor="@color/gray_dark"
+        android:textSize="18dp" />
+
+    <View
+        android:layout_width="245sp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/gray_mid" />
+
+    <EditText
+        android:id="@+id/et_costomer_account"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="@color/gray_light"
+        android:ems="10"
+        android:inputType="textWebEmailAddress"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:text="輸入帳號"
+        android:textColor="@color/gray_light" />
+
+    <EditText
+        android:id="@+id/et_costomer_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="@color/gray_light"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:text="輸入密碼"
+        android:textColor="@color/gray_light" />
+
+    <Button
+        android:id="@+id/btn_costomer_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/roboto_bold"
+        android:onClick="Login"
+        android:text="@string/login"
+        android:textColor="@color/brown_dark"
+        android:textSize="18dp"
+        app:strokeColor="@color/brown_light"
+        app:strokeWidth="2dp" />
+
+    <TextView
+        android:id="@+id/tv_to_regist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="若尚未用有帳號，請點選此註冊"
+        android:textColor="@color/brown_dark" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="245sp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@color/brown_dark" />
+  </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

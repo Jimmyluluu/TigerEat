@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TigerEatApp</string>
+    <string name="login">登入</string>
 </resources>

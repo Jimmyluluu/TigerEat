@@ -4,11 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/edittext_background.xml" value="0.19" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/rectangle.xml" value="0.19" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/TestUIUX.xml" value="0.25364583333333335" />
-        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_costomer_login.xml" value="0.25" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_costomer_login.xml" value="0.2115036231884058" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.13125" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main_page.xml" value="0.2115036231884058" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.2115036231884058" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15961084780485735" />
       </map>

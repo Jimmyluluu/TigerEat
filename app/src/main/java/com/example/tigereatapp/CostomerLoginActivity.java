@@ -20,5 +20,10 @@ public class CostomerLoginActivity extends AppCompatActivity {
     }
 
     public void Login(View view) {
+        /**
+         * 驗證
+         */
+
+        Intent intent = new Intent();
     }
 }
