@@ -20,4 +20,10 @@
     <td>rex06020</td>
     <td>15, 22, 23, 24</td>
   </tr>
+  <tr>
+    <td>張子晴</td>
+    <td>D0843778</td>
+    <td>chingggg</td>
+    <td></td>
+  </tr>
 </table>
