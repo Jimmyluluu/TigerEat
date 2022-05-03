@@ -12,7 +12,14 @@
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.13125" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main_page.xml" value="0.2115036231884058" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.2115036231884058" />
+        <entry key="app/src/main/res/drawable/character_corner.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/layout_corner.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1355" />
+        <entry key="app/src/main/res/layout/activity_costomer_login.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.18795289855072464" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15961084780485735" />
+        <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.1671195652173913" />
       </map>
     </option>
   </component>
