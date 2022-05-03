@@ -6,7 +6,7 @@
     <td>組員姓名</td>
     <td>學號</td>
     <td>GitHub</td>
-    <td>US</td>
+    <td>Issue</td>
   </tr>
   <tr>
     <td>魯敬元</td>
@@ -18,7 +18,7 @@
     <td>羅弘翔</td>
     <td>D0745939</td>
     <td>rex06020</td>
-    <td>15, 22, 23, 24</td>
+    <td></td>
   </tr>
   <tr>
     <td>張子晴</td>
