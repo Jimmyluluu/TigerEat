@@ -15,7 +15,7 @@
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintStart_toStartOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:srcCompat="@drawable/tiger_eat_logo" />
+      app:srcCompat="@drawable/logo" />
 
   <LinearLayout
       android:id="@+id/linearLayout"
