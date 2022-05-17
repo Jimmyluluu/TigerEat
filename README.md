@@ -45,7 +45,7 @@
     <td>魯敬元</td>
     <td>D0885995</td>
     <td>Jimmyluluu</td>
-    <td></td>
+    <td>4</td>
   </tr>
   <tr>
     <td>羅弘翔</td>
@@ -57,12 +57,12 @@
     <td>張子晴</td>
     <td>D0843778</td>
     <td>chingggg</td>
-    <td></td>
+    <td>15</td>
   </tr>
     <tr>
     <td>鍾旻倢</td>
     <td>D0845235</td>
     <td>min-jie</td>
-    <td></td>
+    <td>8</td>
   </tr>
 </table>
