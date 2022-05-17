@@ -21,7 +21,9 @@
             android:id="@+id/tvTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="個人資訊" />
+            android:text="個人資訊"
+            android:textSize="18sp"
+            android:textStyle="bold" />
     </LinearLayout>
 
     <LinearLayout
@@ -29,19 +31,123 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="39dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="39dp"
         android:background="@drawable/rectangle"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.207"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/llTitle">
+        app:layout_constraintTop_toBottomOf="@+id/llTitle"
+        app:layout_constraintVertical_bias="0.0">
+
+        <ImageView
+            android:id="@+id/ivInfoPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/circle"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/tvInfoName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="姓名"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvInfoAccount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="E-mail:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvInfoPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="電話:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvInfoAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="住址:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvInfoEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="編輯資訊"
+            android:textColor="@color/brown_dark"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/vLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="5dp"
+            android:background="@color/gray_dark" />
+
+        <TextView
+            android:id="@+id/tvOrderLists"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="訂單"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvFavorate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="我的最愛"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tvLogout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:minHeight="48dp"
-            android:text="登出" />
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="147dp"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:text="登出"
+            android:textSize="20sp"
+            android:textStyle="bold" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
