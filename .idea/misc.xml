@@ -25,13 +25,18 @@
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/tapbar.xml" value="0.1125" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11822916666666666" />
         <entry key="app/src/main/res/drawable/character_corner.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/circle.xml" value="0.1345" />
         <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/layout_corner.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1355" />
         <entry key="app/src/main/res/layout/activity_costomer_login.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.30569966634114587" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.1852355072463768" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.18795289855072464" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15961084780485735" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.1852355072463768" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/home_layout.xml" value="0.34235738118489584" />
       </map>
     </option>
   </component>

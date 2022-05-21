@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_page);
 
+
         //clear();
 
         //記錄使用者的登錄資料，讓使用者只須登入一次
@@ -43,6 +44,12 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        //Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+        //startActivity(intent);
+
     }
 
     public void clear() {
