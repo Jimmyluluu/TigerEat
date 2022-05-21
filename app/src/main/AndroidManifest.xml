@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TigerEatApp">
         <activity
+            android:name=".CostomerRegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditInfoActivity"
+            android:exported="false" />
+        <activity
             android:name=".InfoActivity"
             android:exported="false" />
         <activity

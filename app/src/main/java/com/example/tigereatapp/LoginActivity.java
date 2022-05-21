@@ -27,12 +27,16 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         tv2Regist = findViewById(R.id.tvToRegist);
-        btnLogin = findViewById(R.id.btnCostomerLogin);
-        etCostomerAccount = findViewById(R.id.etCostomerAccount);
-        etCostomerPassword = findViewById(R.id.etCostomerPassword);
+        btnLogin = findViewById(R.id.btnCostomerRegist);
+        etCostomerAccount = findViewById(R.id.etCostomerRegistAccount);
+        etCostomerPassword = findViewById(R.id.etCostomerRegistPassword);
     }
 
     public void Regist(View view) {
+        Intent getIntent = getIntent();
+        //getIntent.getSerializableExtra();
+        Intent intent = new Intent(this, CostomerRegisterActivity.class);
+        startActivity(intent);
     }
 
     public void Login(View view) {

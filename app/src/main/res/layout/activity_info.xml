@@ -47,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/circle"
+            android:background="@drawable/circle_origin"
             tools:srcCompat="@tools:sample/avatars" />
 
         <TextView

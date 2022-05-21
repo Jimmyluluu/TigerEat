@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "415489685705",
+    "project_id": "tigereat-fbad9",
+    "storage_bucket": "tigereat-fbad9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:415489685705:android:034f216ca1e21820c63518",
+        "android_client_info": {
+          "package_name": "com.example.tigereatapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "415489685705-25ceh74qpla216otha7bu7al5f0ihmg8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDp7_z1V12TpaAZ16HDju5-UDsYh39yXow"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "415489685705-25ceh74qpla216otha7bu7al5f0ihmg8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

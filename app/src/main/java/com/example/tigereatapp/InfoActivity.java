@@ -13,6 +13,7 @@ import android.widget.TextView;
 public class InfoActivity extends AppCompatActivity {
 
     TextView tvLogout;
+    TextView tvInfoEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,8 @@ public class InfoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         tvLogout = findViewById(R.id.tvLogout);
+        tvInfoEdit = findViewById(R.id.tvInfoEdit);
+
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -29,6 +32,15 @@ public class InfoActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(
                         InfoActivity.this, MainActivity.class);
+                startActivity(intent);
+                return false;
+            }
+        });
+
+        tvInfoEdit.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent intent = new Intent(InfoActivity.this, EditInfoActivity.class);
                 startActivity(intent);
                 return false;
             }

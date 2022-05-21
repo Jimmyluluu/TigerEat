@@ -27,6 +27,7 @@ public class WelcomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                intent.putExtra("userState", UserState.COSTOMER_USER);
                 startActivity(intent);
                 finish();
             }

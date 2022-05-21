@@ -37,7 +37,7 @@
       app:layout_constraintVertical_bias="0.06">
 
     <TextView
-        android:id="@+id/tvCostomerLogin"
+        android:id="@+id/tvCostomerRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
@@ -55,7 +55,7 @@
         android:background="@color/gray_mid" />
 
     <EditText
-        android:id="@+id/etCostomerAccount"
+        android:id="@+id/etCostomerRegistAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="39dp"
@@ -71,7 +71,7 @@
         android:textColor="@color/gray_light" />
 
     <EditText
-        android:id="@+id/etCostomerPassword"
+        android:id="@+id/etCostomerRegistPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="39dp"
@@ -87,7 +87,7 @@
         android:textColor="@color/gray_light" />
 
     <Button
-        android:id="@+id/btnCostomerLogin"
+        android:id="@+id/btnCostomerRegist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"

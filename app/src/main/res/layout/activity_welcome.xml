@@ -16,6 +16,7 @@
         android:text="歡迎使用"
         android:textColor="@color/white"
         android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,9 +25,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/roboto_bold"
+        android:paddingBottom="10dp"
         android:text="虎berEat!"
         android:textColor="@color/white"
         android:textSize="24dp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/tv_welcome1" />
 
@@ -58,26 +61,28 @@
             android:fontFamily="@font/roboto_bold"
             android:text="選擇用戶角色"
             android:textColor="@color/gray_dark"
-            android:textSize="18dp" />
+            android:textSize="18dp"
+            android:textStyle="bold" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="5dp"
             android:layout_marginBottom="32dp"
-            android:background="@color/gray_mid" />
+            android:background="@color/gray_dark" />
 
         <Button
             android:id="@+id/btn_costomer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:backgroundTint="@color/brown_dark"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/brown_mid"
             android:fontFamily="@font/roboto_bold"
             android:paddingTop="18dp"
             android:paddingBottom="18dp"
             android:text="消費者"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
             app:strokeColor="@color/brown_light"
             app:strokeWidth="2dp" />
 
@@ -85,13 +90,14 @@
             android:id="@+id/btn_deliver"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:backgroundTint="@color/brown_dark"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="@color/brown_mid"
             android:fontFamily="@font/roboto_bold"
             android:paddingTop="18dp"
             android:paddingBottom="18dp"
             android:text="外送員"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
             app:strokeColor="@color/brown_light"
             app:strokeWidth="2dp" />
 
@@ -100,12 +106,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="18dp"
-            android:backgroundTint="@color/brown_dark"
+            android:backgroundTint="@color/brown_mid"
             android:fontFamily="@font/roboto_bold"
             android:paddingTop="18dp"
             android:paddingBottom="18dp"
             android:text="店家"
-            android:textSize="18dp"
+            android:textSize="20dp"
+            android:textStyle="bold"
             app:strokeColor="@color/brown_light"
             app:strokeWidth="2dp" />
     </LinearLayout>
