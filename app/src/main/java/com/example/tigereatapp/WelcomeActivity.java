@@ -1,3 +1,4 @@
+
 package com.example.tigereatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -25,8 +26,10 @@ public class WelcomeActivity extends AppCompatActivity {
         btnCostomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(WelcomeActivity.this, CostomerLoginActivity.class);
+                Intent intent = new Intent(WelcomeActivity.this, LoginActivity.class);
+                intent.putExtra("userState", UserState.COSTOMER_USER);
                 startActivity(intent);
+                finish();
             }
         });
 

@@ -4,110 +4,117 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#E6FFF1A6"
-    tools:context=".Login">
+    android:background="@color/yellow"
+    tools:context=".LoginActivity">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
-        android:layout_width="358dp"
-        android:layout_height="280dp"
-        android:background="@drawable/layout_corner"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+  <ImageView
+      android:id="@+id/iv_logo"
+      android:layout_width="183dp"
+      android:layout_height="183dp"
+      android:layout_marginTop="81dp"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:srcCompat="@drawable/logo" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="登入"
-            android:textColor="#8E8E8E"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+  <LinearLayout
+      android:id="@+id/linearLayout"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_marginStart="41dp"
+      android:layout_marginEnd="40dp"
+      android:layout_marginBottom="100dp"
+      android:background="@drawable/rectangle_shadow"
+      android:orientation="vertical"
+      android:paddingLeft="17dp"
+      android:paddingTop="19dp"
+      android:paddingRight="17dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/iv_logo"
+      app:layout_constraintVertical_bias="0.06">
 
-        <View
-            android:id="@+id/line2"
-            android:layout_width="285dp"
-            android:layout_height="3px"
-            android:layout_marginTop="12dp"
-            android:background="#B4B4B4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.506"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3"></View>
+    <TextView
+        android:id="@+id/tvCostomerRegister"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/roboto_bold"
+        android:text="@string/login"
+        android:textColor="@color/gray_dark"
+        android:textSize="18dp" />
 
-        <EditText
-            android:id="@+id/edt_acc"
-            android:layout_width="240dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/edittext_frame"
-            android:ems="10"
-            android:hint="  輸入帳號"
-            android:inputType="textPersonName"
-            android:textColor="#C4C4C4"
-            android:textColorHint="#C4C4C4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/line2" />
+    <View
+        android:layout_width="245sp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/gray_mid" />
 
-        <EditText
-            android:id="@+id/edt_pass"
-            android:layout_width="240dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="12dp"
-            android:background="@drawable/edittext_frame"
-            android:ems="10"
-            android:hint="  輸入密碼"
-            android:inputType="textPassword"
-            android:textColorHint="#C4C4C4"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.505"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_acc" />
+    <EditText
+        android:id="@+id/etCostomerRegistAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="@color/gray_light"
+        android:ems="10"
+        android:hint="@string/enter_account"
+        android:inputType="textWebEmailAddress"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/gray_light" />
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="79dp"
-            android:layout_height="38dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/character_corner"
-            android:text="登入"
-            android:textSize="14sp"
-            app:backgroundTint="@null"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/edt_pass" />
+    <EditText
+        android:id="@+id/etCostomerRegistPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="39dp"
+        android:layout_marginRight="39dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/edittext_background"
+        android:backgroundTint="@color/gray_light"
+        android:ems="10"
+        android:hint="@string/enter_password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/gray_light" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="若尚未擁有帳號，請點選此註冊"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/button3" />
+    <Button
+        android:id="@+id/btnCostomerRegist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/orange"
+        android:fontFamily="@font/roboto_bold"
+        android:onClick="Login"
+        android:text="@string/login"
+        android:textColor="@color/brown_dark"
+        android:textSize="18dp"
+        app:strokeColor="@color/brown_light"
+        app:strokeWidth="2dp" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <TextView
+        android:id="@+id/tvToRegist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:onClick="Regist"
+        android:text="若尚未用有帳號，請點選此註冊"
+        android:textColor="@color/brown_dark" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="243dp"
-        android:layout_height="146dp"
-        android:src="@drawable/logo"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.901" />
+    <View
+        android:id="@+id/view"
+        android:layout_width="245sp"
+        android:layout_height="1dp"
+        android:layout_gravity="center"
+        android:background="@color/brown_dark" />
+  </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

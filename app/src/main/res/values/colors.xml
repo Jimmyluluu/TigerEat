@@ -9,7 +9,8 @@
     <color name="white">#FFFFFFFF</color>
     <color name="yellow">#FFF1A6</color>
     <color name="orange">#FFC594</color>
-    <color name="brown_dark">#BA916B</color>
+    <color name="brown_dark">#A08177</color>
+    <color name="brown_mid">#BA916B</color>
     <color name="brown_light">#D2AA84</color>
     <color name="gray_dark">#8E8E8E</color>
     <color name="gray_light">#C4C4C4</color>
