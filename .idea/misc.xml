@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2865" />
         <entry key="app/src/main/res/drawable/character_corner.xml" value="0.2865" />
         <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.2865" />
@@ -14,6 +15,52 @@
         <entry key="app/src/main/res/layout/activity_edit_info.xml" value="0.2734375" />
         <entry key="app/src/main/res/layout/activity_home.xml" value="0.2734375" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.30416666666666664" />
+
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.2235" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_home.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_info.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/home_layout.xml" value="0.5" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/character_corner.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/circle.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/circle_origin.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/edit_text_inner_shadow.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/edittext_background.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/edittext_frame.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/edittext_shadow.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/ic_launcher_background.xml" value="0.19" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/layout_corner.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/rectangle.xml" value="0.19" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/rectangle_shadow.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/tapbar.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/font/roboto_bold.xml" value="0.1484375" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/TestUIUX.xml" value="0.25364583333333335" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_costomer_login.xml" value="0.25" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_costomer_register.xml" value="0.24954710144927536" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_edit_info.xml" value="0.24954710144927536" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_home.xml" value="0.1" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_info.xml" value="0.24954710144927536" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_login.xml" value="0.24954710144927536" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.13125" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_main_page.xml" value="0.24954710144927536" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.2115036231884058" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/layout/tapbar.xml" value="0.1125" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/menu/bottom_nav.xml" value="0.25364583333333335" />
+        <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11822916666666666" />
+        <entry key="app/src/main/res/drawable/character_corner.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/layout_corner.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1355" />
+        <entry key="app/src/main/res/layout/activity_arrrive_time.xml" value="0.19429347826086957" />
+        <entry key="app/src/main/res/layout/activity_costomer_login.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.18795289855072464" />
+
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15961084780485735" />
         <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.2734375" />
         <entry key="app/src/main/res/layout/activity_shoppingcart.xml" value="0.335" />
