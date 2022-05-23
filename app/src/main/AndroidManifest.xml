@@ -14,7 +14,8 @@
             android:exported="false" />
         <activity
             android:name=".CostomerRegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:usesCleartextTraffic="true" />
         <activity
             android:name=".EditInfoActivity"
             android:exported="false" />

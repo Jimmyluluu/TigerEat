@@ -23,11 +23,12 @@ public class MainActivity extends AppCompatActivity {
 
         //clear();
 
-        //記錄使用者的登錄資料，讓使用者只須登入一次
-        //目前能執行，但若要再更新程式至虛擬機，便要先登出，或執行clear()
+        // 記錄使用者的登錄資料，讓使用者只須登入一次
+        // 目前能執行，但若要再更新程式至虛擬機，便要先登出，
+        // 或將sharePreferences相關程式註解後執行clear()
         SharedPreferences sharedPreferences =
                 getSharedPreferences("login", Context.MODE_PRIVATE);
-        if (sharedPreferences.getString("loggedIn", null) == null) {
+        if (sharedPreferences.getString("login", null) == null) {
             Intent intent = new Intent(MainActivity.this, WelcomeActivity.class);
             startActivity(intent);
         }
