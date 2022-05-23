@@ -1,5 +1,6 @@
 package com.example.tigereatapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
@@ -13,13 +14,19 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class LoginActivity extends AppCompatActivity {
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
+public class LoginActivity extends AppCompatActivity implements OnCompleteListener<AuthResult> {
 
     public static final String USER_STATE = "userState";
     public TextView tv2Regist;
     private Button btnLogin;
     private EditText etCostomerAccount;
     private EditText etCostomerPassword;
+    FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,7 @@ public class LoginActivity extends AppCompatActivity {
         btnLogin = findViewById(R.id.btnCostomerRegist);
         etCostomerAccount = findViewById(R.id.etCostomerRegistAccount);
         etCostomerPassword = findViewById(R.id.etCostomerRegistPassword);
+        firebaseAuth = FirebaseAuth.getInstance();
     }
 
     public void Regist(View view) {
@@ -39,13 +47,18 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void Login(View view) {
+    public void onLogin(View view) {
         /**
-         * account: admin
-         * password: 12345
+         * account: admin@mail.com
+         * password: 1234567
          */
 
-        //驗證
+        String email = etCostomerAccount.getText().toString();
+        String password = etCostomerPassword.getText().toString();
+        firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener(this, this);
+
+        /*//驗證
         CheckUser checkUser = new CheckUser(
                 etCostomerAccount.getText().toString(), etCostomerPassword.getText().toString());
 
@@ -67,10 +80,22 @@ public class LoginActivity extends AppCompatActivity {
             Log.i("accountAndPassword", "wrong");
             Log.i("account", etCostomerAccount.getText().toString());
             Log.i("password", etCostomerPassword.getText().toString());
-        }
+        }*/
 
         /*Intent intent = new Intent(this, MainActivity.class);
         intent.putExtra(USER_STATE, UserState.COSTOMER_USER);
         startActivity(intent);*/
+    }
+
+    @Override
+    public void onComplete(@NonNull Task<AuthResult> task) {
+        if (task.isSuccessful()) {
+            Toast.makeText(this, "登入成功", Toast.LENGTH_LONG)
+                    .show();
+            finish();
+        } else {
+            Toast.makeText(this, "登入失敗", Toast.LENGTH_LONG)
+                    .show();
+        }
     }
 }

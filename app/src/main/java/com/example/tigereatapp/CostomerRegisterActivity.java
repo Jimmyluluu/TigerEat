@@ -78,7 +78,7 @@ public class CostomerRegisterActivity extends AppCompatActivity implements OnCom
         String phone = etCostomerRegistPhone.getText().toString();
 
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference userRef = firebaseDatabase.getReference("users");
+        DatabaseReference userRef = firebaseDatabase.getReference("costomers");
         DatabaseReference infoRef = userRef.child(email);
 
         Map<String, Object> user = new HashMap<>();
