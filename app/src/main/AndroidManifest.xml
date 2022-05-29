@@ -14,7 +14,8 @@
             android:exported="false" />
         <activity
             android:name=".CostomerRegisterActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:usesCleartextTraffic="true" />
         <activity
             android:name=".EditInfoActivity"
             android:exported="false" />
@@ -22,13 +23,13 @@
             android:name=".InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".WelcomeActivity"
+            android:name=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".WelcomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
