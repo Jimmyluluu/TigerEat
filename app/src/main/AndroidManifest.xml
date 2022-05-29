@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TigerEatApp">
         <activity
+            android:name=".ShoppingcartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ArrriveTimeActivity"
             android:exported="false" />
         <activity
