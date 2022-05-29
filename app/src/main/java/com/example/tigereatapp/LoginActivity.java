@@ -38,11 +38,12 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
         etCostomerAccount = findViewById(R.id.etCostomerRegistAccount);
         etCostomerPassword = findViewById(R.id.etCostomerRegistPassword);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        Intent getIntent = getIntent();
+        //getIntent.getSerializableExtra();
     }
 
     public void Regist(View view) {
-        Intent getIntent = getIntent();
-        //getIntent.getSerializableExtra();
         Intent intent = new Intent(this, CostomerRegisterActivity.class);
         startActivity(intent);
     }
@@ -92,7 +93,8 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
         if (task.isSuccessful()) {
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG)
                     .show();
-            finish();
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
         } else {
             Toast.makeText(this, "登入失敗", Toast.LENGTH_LONG)
                     .show();
