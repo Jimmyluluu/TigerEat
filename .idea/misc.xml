@@ -44,10 +44,18 @@
         <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/layout_corner.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1355" />
+        <entry key="app/src/main/res/layout/activity_arrrive_time.xml" value="0.44375152587890626" />
         <entry key="app/src/main/res/layout/activity_costomer_login.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/activity_costomer_register.xml" value="0.1875" />
+        <entry key="app/src/main/res/layout/activity_edit_info.xml" value="0.2680145263671875" />
+        <entry key="app/src/main/res/layout/activity_home.xml" value="0.23748474121093743" />
+        <entry key="app/src/main/res/layout/activity_info.xml" value="0.1875" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.18795289855072464" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15961084780485735" />
+        <entry key="app/src/main/res/layout/activity_main_page.xml" value="0.1875" />
+        <entry key="app/src/main/res/layout/activity_shoppingcart.xml" value="0.3" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.1671195652173913" />
+        <entry key="app/src/main/res/layout/home_layout.xml" value="0.3" />
       </map>
     </option>
   </component>
