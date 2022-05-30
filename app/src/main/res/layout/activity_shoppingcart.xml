@@ -143,6 +143,18 @@
                 android:textAlignment="textStart"
                 android:textSize="18sp" />
         </LinearLayout>
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange"
+            android:fontFamily="@font/roboto_bold"
+            android:text="確定下單"
+            android:textColor="@color/brown_dark"
+            android:textSize="18sp"
+            app:strokeColor="@color/brown_light"
+            app:strokeWidth="2sp" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
