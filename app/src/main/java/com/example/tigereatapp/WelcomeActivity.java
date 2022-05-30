@@ -23,6 +23,9 @@ public class WelcomeActivity extends AppCompatActivity {
         btnDeliver = findViewById(R.id.btn_deliver);
         btnSupplier = findViewById(R.id.btn_supplier);
 
+        Intent shortCut = new Intent(this, InfoActivity.class);
+        startActivity(shortCut);
+
         btnCostomer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
