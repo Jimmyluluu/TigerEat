@@ -145,11 +145,12 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/order"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/roboto_bold"
+            android:onClick="gotoPayment"
             android:text="確定下單"
             android:textColor="@color/brown_dark"
             android:textSize="18sp"
