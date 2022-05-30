@@ -42,13 +42,21 @@
         app:layout_constraintTop_toBottomOf="@+id/llTitle"
         app:layout_constraintVertical_bias="0.0">
 
-        <ImageView
-            android:id="@+id/ivInfoPhoto"
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:background="@drawable/circle_origin"
-            tools:srcCompat="@tools:sample/avatars" />
+            app:cardCornerRadius="250dp">
+
+            <ImageView
+                android:id="@+id/ivInfoPhoto"
+                android:layout_width="107dp"
+                android:layout_height="107dp"
+                android:layout_gravity="center"
+                android:background="@drawable/photo"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+        </androidx.cardview.widget.CardView>
 
         <TextView
             android:id="@+id/tvInfoName"
