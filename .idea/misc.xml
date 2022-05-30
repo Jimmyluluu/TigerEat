@@ -42,8 +42,13 @@
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/menu/bottom_nav_menu.xml" value="0.11822916666666666" />
         <entry key="app/src/main/res/drawable/character_corner.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/edittext_frame.xml" value="0.1355" />
+        <entry key="app/src/main/res/drawable/ic_baseline_home_24.xml" value="0.304" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search_24.xml" value="0.304" />
+        <entry key="app/src/main/res/drawable/ic_baseline_shopping_cart_24.xml" value="0.304" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.304" />
         <entry key="app/src/main/res/drawable/layout_corner.xml" value="0.1355" />
         <entry key="app/src/main/res/drawable/rectangle.xml" value="0.1355" />
+        <entry key="app/src/main/res/font/roboto_bold.xml" value="0.3307291666666667" />
         <entry key="app/src/main/res/layout/activity_arrrive_time.xml" value="0.44375152587890626" />
         <entry key="app/src/main/res/layout/activity_costomer_login.xml" value="0.1671195652173913" />
         <entry key="app/src/main/res/layout/activity_costomer_register.xml" value="0.1875" />
@@ -56,6 +61,8 @@
         <entry key="app/src/main/res/layout/activity_shoppingcart.xml" value="0.3" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.1671195652173913" />
         <entry key="app/src/main/res/layout/home_layout.xml" value="0.3" />
+        <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.30052083333333335" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.304" />
       </map>
     </option>
   </component>
