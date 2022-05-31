@@ -2,7 +2,9 @@ package com.example.tigereatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 public class ShoppingcartActivity extends AppCompatActivity {
 
@@ -11,4 +13,10 @@ public class ShoppingcartActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shoppingcart );
     }
+
+    public void gotoPayment(View view) {
+        Intent intent = new Intent(this, PaymentActivity.class);
+        startActivity(intent);
+    }
+
 }
