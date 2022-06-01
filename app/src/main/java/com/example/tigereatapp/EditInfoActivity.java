@@ -166,54 +166,60 @@ public class EditInfoActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
 
         try {
-            if (requestCode == 1 && resultCode == RESULT_OK && null != data) {
-                Toast.makeText(this, "Success to pick image", Toast.LENGTH_LONG).show();
-                Log.i("pick image", "success");
-                // 這邊便可以對輸入的 data 進行我們想要做的處理
-                //getLocalMediaUri();
+            if (resultCode == RESULT_OK && null != data) {
+                if (requestCode == 1) {
+                    Toast.makeText(this, "Success to pick image", Toast.LENGTH_LONG).show();
+                    Log.i("pick image", "success");
+                    // 這邊便可以對輸入的 data 進行我們想要做的處理
+                    //getLocalMediaUri();
 
-                Uri uri = data.getData();//uri identifier
-                Log.i("uri", uri.toString());
-                if (DocumentsContract.isDocumentUri(this, uri)) {
-                    String docId = DocumentsContract.getDocumentId(uri);
-                    Log.i("docId", docId);
+                    Uri uri = data.getData();//uri identifier
+                    Log.i("uri", uri.toString());
+                    if (DocumentsContract.isDocumentUri(this, uri)) {
+                        String docId = DocumentsContract.getDocumentId(uri);
+                        Log.i("docId", docId);
 
-                    // 到各資料夾下找
-                    if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
+                        // 到各資料夾下找
+                        if ("com.android.providers.media.documents".equals(uri.getAuthority())) {
+                            //Fill in code by yourself
+                            String id = docId.split(":")[1];
+                            String selection = MediaStore.Images.Media._ID + "=" + id;
+                            imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
+                            Log.i("imagePath", imagePath);
+
+                        } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
+                            //Fill in code by yourself
+                            Uri contentUri = ContentUris.withAppendedId(
+                                    Uri.parse("content://downloads/public_downloads"),
+                                    Long.valueOf(docId));
+                            imagePath = getImagePath(contentUri, null);
+                            Log.i("imagePath", imagePath);
+                        }
+                    } else if ("content".equalsIgnoreCase(uri.getScheme())) {
                         //Fill in code by yourself
-                        String id = docId.split(":")[1];
-                        String selection = MediaStore.Images.Media._ID + "=" + id;
-                        imagePath = getImagePath(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, selection);
-                        Log.i("imagePath", imagePath);
-
-                    } else if ("com.android.providers.downloads.documents".equals(uri.getAuthority())) {
-                        //Fill in code by yourself
-                        Uri contentUri = ContentUris.withAppendedId(
-                                Uri.parse("content://downloads/public_downloads"),
-                                Long.valueOf(docId));
-                        imagePath = getImagePath(contentUri, null);
+                        imagePath = getImagePath(uri, null);
                         Log.i("imagePath", imagePath);
                     }
-                } else if ("content".equalsIgnoreCase(uri.getScheme())) {
-                    //Fill in code by yourself
-                    imagePath = getImagePath(uri, null);
-                    Log.i("imagePath", imagePath);
-                }
-                //判斷圖片型態
-                if (imagePath.indexOf(".jpg") > -1) {
-                    imageType = ".jpg";
-                } else if (imagePath.indexOf(".png") > -1) {
-                    imageType = ".png";
-                } else if (imagePath.indexOf(".gif") > -1) {
-                    imageType = ".gif";
-                }
-                //選擇的圖片轉換成bitmap
-                bitmap = BitmapFactory.decodeFile(imagePath, bfoOptions);
-                ivEditPhoto.setImageBitmap(bitmap);
+                    //判斷圖片型態
+                    if (imagePath.indexOf(".jpg") > -1) {
+                        imageType = ".jpg";
+                    } else if (imagePath.indexOf(".png") > -1) {
+                        imageType = ".png";
+                    } else if (imagePath.indexOf(".gif") > -1) {
+                        imageType = ".gif";
+                    }
+                    //選擇的圖片轉換成bitmap
+                    bitmap = BitmapFactory.decodeFile(imagePath, bfoOptions);
 
+                } else if (requestCode == 2) {
+                    Log.i("open", "camera");
+                    Bundle extras = data.getExtras();
+                    bitmap = (Bitmap) extras.get("data");
+                }
+                Log.i("ul", "bf");
                 upload();
-            } else if (requestCode == 2) {
-                Log.i("open", "camera");
+                Log.i("ul", "af");
+                ivEditPhoto.setImageBitmap(bitmap);
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something wrong", Toast.LENGTH_LONG).show();
@@ -244,8 +250,11 @@ public class EditInfoActivity extends AppCompatActivity {
         String picname = User.name + "-" + ts + imageType;
         mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("email").child("infopic").setValue(picname);
+        Log.i("picname", picname);
         //要上傳到遠端路徑
-        StorageReference imageRef = storage.getReference().child("images").child(picname);
+        StorageReference imageRef = storage.getReference()
+                .child("images").child(User.name).child(picname);
+        Log.i("imageRef", imageRef.toString());
         byte[] dataUpdate = null ;
         if(imagePath.indexOf(".gif") > -1){
             FileInputStream fis = null;
@@ -259,8 +268,11 @@ public class EditInfoActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }else{
+            Log.i("image", "notGif");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Log.i("bao", "");
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            Log.i("bitmap", "");
             dataUpdate = baos.toByteArray();
         }
 
