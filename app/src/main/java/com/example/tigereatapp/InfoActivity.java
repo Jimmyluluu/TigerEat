@@ -1,6 +1,7 @@
 package com.example.tigereatapp;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -51,6 +52,8 @@ public class InfoActivity extends AppCompatActivity {
                 // firebase logout
 
                 // logout
+                User.userState = UserState.ILLEGAL_USER;
+
                 SharedPreferences sharedPreferences =
                     getSharedPreferences("login", Context.MODE_PRIVATE);
                 sharedPreferences.edit().clear().commit();
@@ -64,6 +67,7 @@ public class InfoActivity extends AppCompatActivity {
         });
 
         tvInfoEdit.setOnTouchListener(new View.OnTouchListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Intent intent = new Intent(InfoActivity.this, EditInfoActivity.class);

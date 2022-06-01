@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
     private Button btnLogin;
     private EditText etCostomerAccount;
     private EditText etCostomerPassword;
+    private String email;
+    private String password;
     FirebaseAuth firebaseAuth;
 
     @Override
@@ -54,8 +56,8 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
          * password: 1234567
          */
 
-        String email = etCostomerAccount.getText().toString();
-        String password = etCostomerPassword.getText().toString();
+        email = etCostomerAccount.getText().toString();
+        password = etCostomerPassword.getText().toString();
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, this);
 
@@ -93,6 +95,15 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
         if (task.isSuccessful()) {
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG)
                     .show();
+
+            User.account = email;
+            User.password = password;
+            StringBuffer stringBuffer = new StringBuffer(email);
+            stringBuffer.replace(email.indexOf("@"),
+                    email.length(), "");
+            User.name = stringBuffer.toString();
+            User.userState = UserState.COSTOMER_USER;
+
             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {

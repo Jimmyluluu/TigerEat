@@ -2,6 +2,7 @@ package com.example.tigereatapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.loader.content.CursorLoader;
@@ -32,20 +33,47 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import com.google.android.gms.tasks.Continuation;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.ktx.Firebase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.Base64;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+@RequiresApi(api = Build.VERSION_CODES.O)
 public class EditInfoActivity extends AppCompatActivity {
 
     private Button btnConfirm;
     private ImageView ivEditPhoto;
     private ImageView ivPhoto;
     private ImageView ivCamera;
-    String imagePath;
-    String imageType = ".jpg";
-    Bitmap bitmap = null;
+    private String imagePath;
+    private String imageType = ".jpg";
+    private DatabaseReference mDatabase;
+    private FirebaseStorage storage;
+    private StorageReference storageRef;
+    private Bitmap bitmap = null;
     BitmapFactory.Options bfoOptions = new BitmapFactory.Options();
+    private Thread thread;
+    final Base64.Decoder decoder = Base64.getDecoder();
+    final Base64.Encoder encoder = Base64.getEncoder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +84,9 @@ public class EditInfoActivity extends AppCompatActivity {
         ivEditPhoto = findViewById(R.id.ivEditInfoPhoto);
         btnConfirm = findViewById(R.id.btnConfirm);
         ivCamera = findViewById(R.id.ivCamera);
+
+        //取得firebase storage
+        storage = FirebaseStorage.getInstance();
 
         ivPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,6 +108,7 @@ public class EditInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Log.i("state", "onClick");
+                getCameraPermission();
                 Log.i("state", "getPermission");
                 openCamera();
                 Log.i("state", "cameraOpen");
@@ -178,6 +210,10 @@ public class EditInfoActivity extends AppCompatActivity {
                 //選擇的圖片轉換成bitmap
                 bitmap = BitmapFactory.decodeFile(imagePath, bfoOptions);
                 ivEditPhoto.setImageBitmap(bitmap);
+
+                upload();
+            } else if (requestCode == 2) {
+                Log.i("open", "camera");
             }
         } catch (Exception e) {
             Toast.makeText(this, "Something wrong", Toast.LENGTH_LONG).show();
@@ -197,6 +233,91 @@ public class EditInfoActivity extends AppCompatActivity {
             cursor.close();
         }
         return path;
+    }
+
+    private void upload() {
+
+        //建立時戳
+        Long tsLong = System.currentTimeMillis() / 1000;
+        String ts = tsLong.toString();
+        //要圖片的新檔名
+        String picname = User.name + "-" + ts + imageType;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("email").child("infopic").setValue(picname);
+        //要上傳到遠端路徑
+        StorageReference imageRef = storage.getReference().child("images").child(picname);
+        byte[] dataUpdate = null ;
+        if(imagePath.indexOf(".gif") > -1){
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(imagePath);
+                dataUpdate = new byte[fis.available()];
+                fis.read(dataUpdate);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }else{
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            dataUpdate = baos.toByteArray();
+        }
+
+        UploadTask uploadTask = imageRef.putBytes(dataUpdate);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Log.e("upload", "fail");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+                Log.i("upload", "success");
+            }
+        });
+
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+                // Continue with the task to get the download URL
+                return imageRef.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    User.photoUri = downloadUri.toString();
+                    Log.i("download", downloadUri.toString());
+                } else {
+                    Log.i("dtask", "fail");
+                }
+            }
+        });
+    }
+
+    private void getCameraPermission() {
+
+        boolean cameraHasGone = checkSelfPermission(Manifest.permission.CAMERA)
+                == PackageManager.PERMISSION_GRANTED;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            String[] permissions = new String[1];;
+            if (!cameraHasGone) {//如果相機權限未取得
+                permissions[0] = Manifest.permission.CAMERA;
+            } else {
+                Log.i("permi", "權限已取得");
+                return;
+            }
+            requestPermissions(permissions, 100);
+        }
     }
 
     public void openCamera(){
