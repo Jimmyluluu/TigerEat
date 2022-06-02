@@ -1,6 +1,10 @@
 package com.example.tigereatapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
@@ -25,6 +29,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -35,6 +52,7 @@ public class InfoActivity extends AppCompatActivity {
     TextView tvLogout;
     TextView tvInfoEdit;
     ImageView ivInfoPhoto;
+    String picName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,12 +63,18 @@ public class InfoActivity extends AppCompatActivity {
         tvInfoEdit = findViewById(R.id.tvInfoEdit);
         ivInfoPhoto = findViewById(R.id.ivInfoPhoto);
 
+        Log.i("before", "");
+        getPicName();
+        Log.i("after", "");
+
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 // firebase logout
 
                 // logout
+                User.userState = UserState.ILLEGAL_USER;
+
                 SharedPreferences sharedPreferences =
                     getSharedPreferences("login", Context.MODE_PRIVATE);
                 sharedPreferences.edit().clear().commit();
@@ -64,6 +88,7 @@ public class InfoActivity extends AppCompatActivity {
         });
 
         tvInfoEdit.setOnTouchListener(new View.OnTouchListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 Intent intent = new Intent(InfoActivity.this, EditInfoActivity.class);
@@ -71,5 +96,63 @@ public class InfoActivity extends AppCompatActivity {
                 return false;
             }
         });
+    }
+
+    private void getPicName() {
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference infoRef = mDatabase.child("email");
+
+        Query picNameQuery = infoRef.orderByValue();
+        picNameQuery.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
+                picName = snapshot.getValue(String.class);
+                Log.i("picName", picName);
+                setPic(picName);
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
+                picName = snapshot.getValue(String.class);
+                String key = snapshot.getKey();
+                Log.i("picName", picName);
+                setPic(picName);
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                Log.d(TAG, "onChildRemoved:" + snapshot.getKey());
+                String key = snapshot.getKey();
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                Log.d(TAG, "onChildMoved:" + snapshot.getKey());
+                picName = snapshot.getValue(String.class);
+                String key = snapshot.getKey();
+                Log.i("picName", picName);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Log.w(TAG, "postComments:onCancelled", error.toException());
+            }
+        });
+    }
+
+    private void setPic(String p) {
+
+        Log.i("get", p);
+        //取得firebase storage
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference imageRef = storage.getReference()
+                .child("images").child(User.name).child(p);
+
+        Glide.with(this)
+                .load(imageRef)
+                .into(ivInfoPhoto);
     }
 }

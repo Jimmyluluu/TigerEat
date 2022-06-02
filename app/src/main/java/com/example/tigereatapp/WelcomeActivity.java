@@ -24,7 +24,7 @@ public class WelcomeActivity extends AppCompatActivity {
         btnSupplier = findViewById(R.id.btn_supplier);
 
         Intent shortCut = new Intent(this, InfoActivity.class);
-        // startActivity(shortCut);
+        //startActivity(shortCut);
 
         btnCostomer.setOnClickListener(new View.OnClickListener() {
             @Override

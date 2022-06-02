@@ -161,7 +161,7 @@
     <td>鍾旻倢</td>
     <td>D0845235</td>
     <td>min-jie</td>
-    <td>#63</td>
+    <td>#63 #62 #57</td>
   </tr>
 </table>
 

@@ -43,15 +43,15 @@
                 android:orientation="vertical">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
+                    android:layout_width="107dp"
+                    android:layout_height="107dp"
                     android:layout_gravity="center"
                     app:cardCornerRadius="250dp">
 
                     <ImageView
                         android:id="@+id/ivEditInfoPhoto"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="107dp"
+                        android:layout_height="107dp"
                         android:layout_gravity="center"
                         android:background="@drawable/photo"
                         android:scaleType="centerCrop" />

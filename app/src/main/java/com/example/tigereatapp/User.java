@@ -2,12 +2,11 @@ package com.example.tigereatapp;
 
 public class User {
 
-    private UserState userState = UserState.ILLEGAL_USER;
-    private int userId;
-    private String account;
-    private String phone;
-    private String password;
-    private String address;
-    private String name;
+    static UserState userState = UserState.ILLEGAL_USER;
+    static int userId;
+    static String account;
+    static String password;
+    static String name;
+    static String photoUri;
 
 }
