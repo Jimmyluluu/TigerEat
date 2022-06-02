@@ -215,6 +215,8 @@ public class EditInfoActivity extends AppCompatActivity {
                     Log.i("open", "camera");
                     Bundle extras = data.getExtras();
                     bitmap = (Bitmap) extras.get("data");
+                    Log.i("bm", String.valueOf(bitmap));
+                    imageType = ".jpg";
                 }
                 Log.i("ul", "bf");
                 upload();
@@ -256,7 +258,9 @@ public class EditInfoActivity extends AppCompatActivity {
                 .child("images").child(User.name).child(picname);
         Log.i("imageRef", imageRef.toString());
         byte[] dataUpdate = null ;
+        Log.i("dud", "");
         if(imagePath.indexOf(".gif") > -1){
+            Log.i("gif", "in");
             FileInputStream fis = null;
             try {
                 fis = new FileInputStream(imagePath);
