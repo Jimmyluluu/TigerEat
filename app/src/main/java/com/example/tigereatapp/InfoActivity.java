@@ -9,10 +9,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
@@ -101,46 +104,27 @@ public class InfoActivity extends AppCompatActivity {
     private void getPicName() {
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference infoRef = mDatabase.child("email");
+        DatabaseReference infoRef = mDatabase.child("email").child("infopic").child(User.name);
+        Log.i("info", infoRef.toString());
 
-        Query picNameQuery = infoRef.orderByValue();
-        picNameQuery.addChildEventListener(new ChildEventListener() {
+        ValueEventListener postListener = new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                Log.i("picName", picName);
-                setPic(picName);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String pic = dataSnapshot.getValue(String.class);
+                String key = dataSnapshot.getKey();
+                Log.i("picname", pic);
+                setPic(pic);
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                String key = snapshot.getKey();
-                Log.i("picName", picName);
-                setPic(picName);
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "onChildRemoved:" + snapshot.getKey());
-                String key = snapshot.getKey();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildMoved:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                String key = snapshot.getKey();
-                Log.i("picName", picName);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "postComments:onCancelled", error.toException());
-            }
-        });
+        };
+        infoRef.addValueEventListener(postListener);
+        Log.i("finish", "");
     }
 
     private void setPic(String p) {
@@ -151,8 +135,22 @@ public class InfoActivity extends AppCompatActivity {
         StorageReference imageRef = storage.getReference()
                 .child("images").child(User.name).child(p);
 
-        Glide.with(this)
-                .load(imageRef)
-                .into(ivInfoPhoto);
+        Log.i("", imageRef.toString());
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                // Data for "images/island.jpg" is returns, use this as needed
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                ivInfoPhoto.setImageBitmap(bitmap);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+                exception.printStackTrace();
+            }
+        });
     }
 }

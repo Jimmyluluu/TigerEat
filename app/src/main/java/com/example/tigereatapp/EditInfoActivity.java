@@ -251,8 +251,9 @@ public class EditInfoActivity extends AppCompatActivity {
         //要圖片的新檔名
         String picname = User.name + "-" + ts + imageType;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("email").child("infopic").setValue(picname);
+        mDatabase.child("email").child("infopic").child(User.name).setValue(picname);
         Log.i("picname", picname);
+        //更新檔名
         //要上傳到遠端路徑
         StorageReference imageRef = storage.getReference()
                 .child("images").child(User.name).child(picname);
