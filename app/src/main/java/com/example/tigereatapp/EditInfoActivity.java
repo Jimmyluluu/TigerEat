@@ -203,16 +203,19 @@ public class EditInfoActivity extends AppCompatActivity {
                     //選擇的圖片轉換成bitmap
                     bitmap = BitmapFactory.decodeFile(imagePath, bfoOptions);
 
+                    Log.i("ul", "bf");
+                    upload();
+                    Log.i("ul", "af");
                 } else if (requestCode == 2) {
                     Log.i("open", "camera");
                     Bundle extras = data.getExtras();
                     bitmap = (Bitmap) extras.get("data");
                     Log.i("bm", String.valueOf(bitmap));
                     imageType = ".jpg";
+                    Log.i("ul", "bf");
+                    cameraUpload();
+                    Log.i("ul", "af");
                 }
-                Log.i("ul", "bf");
-                upload();
-                Log.i("ul", "af");
                 ivEditPhoto.setImageBitmap(bitmap);
             }
         } catch (Exception e) {
@@ -252,7 +255,7 @@ public class EditInfoActivity extends AppCompatActivity {
         Log.i("imageRef", imageRef.toString());
         byte[] dataUpdate = null ;
         Log.i("dud", "");
-        if(imagePath.indexOf(".gif") > -1) {
+        if (imagePath.indexOf(".gif") > -1) {
             Log.i("gif", "in");
             FileInputStream fis = null;
             try {
@@ -264,7 +267,7 @@ public class EditInfoActivity extends AppCompatActivity {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }else{
+        } else {
             Log.i("image", "notGif");
             ByteArrayOutputStream baos = new ByteArrayOutputStream();
             Log.i("bao", "");
@@ -272,6 +275,90 @@ public class EditInfoActivity extends AppCompatActivity {
             Log.i("bitmap", "");
             dataUpdate = baos.toByteArray();
         }
+
+        UploadTask uploadTask = imageRef.putBytes(dataUpdate);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle unsuccessful uploads
+                Log.e("upload", "fail");
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                // taskSnapshot.getMetadata() contains file metadata such as size, content-type, etc.
+                // ...
+                Log.i("upload", "success");
+            }
+        });
+
+        Task<Uri> urlTask = uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+            @Override
+            public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                if (!task.isSuccessful()) {
+                    throw task.getException();
+                }
+                // Continue with the task to get the download URL
+                return imageRef.getDownloadUrl();
+            }
+        }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+            @Override
+            public void onComplete(@NonNull Task<Uri> task) {
+                if (task.isSuccessful()) {
+                    Uri downloadUri = task.getResult();
+                    User.photoUri = downloadUri.toString();
+                    Log.i("download", downloadUri.toString());
+                } else {
+                    Log.i("dtask", "fail");
+                }
+            }
+        });
+    }
+
+    private void cameraUpload() {
+
+        //建立時戳
+        Long tsLong = System.currentTimeMillis() / 1000;
+        String ts = tsLong.toString();
+        //要圖片的新檔名
+        String picname = User.account + "-" + ts + imageType;
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("infopic").child(User.account).setValue(picname);
+        Log.i("picname", picname);
+        //更新檔名
+        //要上傳到遠端路徑
+        StorageReference imageRef = storage.getReference()
+                .child("images").child(User.account).child(picname);
+        Log.i("imageRef", imageRef.toString());
+        // byte[] dataUpdate = null ;
+        // Log.i("gif", String.valueOf(imagePath.indexOf(".gif")));
+        Log.i("dud", "dataUpdate.toString()");
+        /*if (imagePath.indexOf(".gif") > -1) {
+            Log.i("gif", "in");
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(imagePath);
+                dataUpdate = new byte[fis.available()];
+                fis.read(dataUpdate);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            Log.i("image", "notGif");
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            Log.i("bao", "");
+            bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+            Log.i("bitmap", "");
+            dataUpdate = baos.toByteArray();
+        }*/
+        Log.i("image", "notGif");
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        Log.i("bao", "");
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+        Log.i("bitmap", "");
+        byte[] dataUpdate = baos.toByteArray();
 
         UploadTask uploadTask = imageRef.putBytes(dataUpdate);
         uploadTask.addOnFailureListener(new OnFailureListener() {
