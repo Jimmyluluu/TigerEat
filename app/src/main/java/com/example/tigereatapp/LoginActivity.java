@@ -7,7 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -110,12 +109,12 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG)
                     .show();
 
-            User.account = email;
+            User.email = email;
             User.password = password;
             StringBuffer stringBuffer = new StringBuffer(email);
             stringBuffer.replace(email.indexOf("@"),
                     email.length(), "");
-            User.name = stringBuffer.toString();
+            User.account = stringBuffer.toString();
             User.userState = UserState.COSTOMER_USER;
 
             Intent intent = new Intent(LoginActivity.this, InfoActivity.class);

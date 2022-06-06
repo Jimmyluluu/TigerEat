@@ -4,8 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.loader.content.CursorLoader;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -16,15 +14,11 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
-import android.provider.Settings;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -40,22 +34,15 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.ktx.Firebase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EditInfoActivity extends AppCompatActivity {
@@ -94,8 +81,6 @@ public class EditInfoActivity extends AppCompatActivity {
 
                 // requestmanageexternalstorage_Permission();
 
-                getStorePermission();
-
                 Intent intent = new Intent(
                         Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -108,8 +93,6 @@ public class EditInfoActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 Log.i("state", "onClick");
-                getCameraPermission();
-                Log.i("state", "getPermission");
                 openCamera();
                 Log.i("state", "cameraOpen");
             }
@@ -125,6 +108,15 @@ public class EditInfoActivity extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        getStorePermission();
+        getCameraPermission();
+        Log.i("state", "getPermission");
     }
 
     private void getStorePermission() {
@@ -249,18 +241,18 @@ public class EditInfoActivity extends AppCompatActivity {
         Long tsLong = System.currentTimeMillis() / 1000;
         String ts = tsLong.toString();
         //要圖片的新檔名
-        String picname = User.name + "-" + ts + imageType;
+        String picname = User.account + "-" + ts + imageType;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("email").child("infopic").child(User.name).setValue(picname);
+        mDatabase.child("infopic").child(User.account).setValue(picname);
         Log.i("picname", picname);
         //更新檔名
         //要上傳到遠端路徑
         StorageReference imageRef = storage.getReference()
-                .child("images").child(User.name).child(picname);
+                .child("images").child(User.account).child(picname);
         Log.i("imageRef", imageRef.toString());
         byte[] dataUpdate = null ;
         Log.i("dud", "");
-        if(imagePath.indexOf(".gif") > -1){
+        if(imagePath.indexOf(".gif") > -1) {
             Log.i("gif", "in");
             FileInputStream fis = null;
             try {

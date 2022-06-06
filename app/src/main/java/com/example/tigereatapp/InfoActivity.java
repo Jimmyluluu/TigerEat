@@ -3,52 +3,31 @@ package com.example.tigereatapp;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -56,19 +35,18 @@ public class InfoActivity extends AppCompatActivity {
     TextView tvInfoEdit;
     ImageView ivInfoPhoto;
     String picName;
+    public boolean edit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        Log.i("state", "oncreate");
+
         tvLogout = findViewById(R.id.tvLogout);
         tvInfoEdit = findViewById(R.id.tvInfoEdit);
         ivInfoPhoto = findViewById(R.id.ivInfoPhoto);
-
-        Log.i("before", "");
-        getPicName();
-        Log.i("after", "");
 
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -94,6 +72,7 @@ public class InfoActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                edit = true;
                 Intent intent = new Intent(InfoActivity.this, EditInfoActivity.class);
                 startActivity(intent);
                 return false;
@@ -101,10 +80,21 @@ public class InfoActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.i("state", "onstart");
+
+        Log.i("before", "");
+        getPicName();
+        Log.i("after", "");
+    }
+
     private void getPicName() {
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference infoRef = mDatabase.child("email").child("infopic").child(User.name);
+        DatabaseReference infoRef = mDatabase.child("infopic").child(User.account);
         Log.i("info", infoRef.toString());
 
         ValueEventListener postListener = new ValueEventListener() {
@@ -133,7 +123,7 @@ public class InfoActivity extends AppCompatActivity {
         //取得firebase storage
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference imageRef = storage.getReference()
-                .child("images").child(User.name).child(p);
+                .child("images").child(User.account).child(p);
 
         Log.i("", imageRef.toString());
 
