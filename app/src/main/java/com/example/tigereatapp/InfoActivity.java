@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -35,6 +36,10 @@ public class InfoActivity extends AppCompatActivity {
     TextView tvInfoEdit;
     ImageView ivInfoPhoto;
     String picName;
+    private TextView tvName;
+    private TextView tvEmail;
+    private TextView tvPhone;
+    private TextView tvAddress;
     public boolean edit = false;
 
     @Override
@@ -47,6 +52,10 @@ public class InfoActivity extends AppCompatActivity {
         tvLogout = findViewById(R.id.tvLogout);
         tvInfoEdit = findViewById(R.id.tvInfoEdit);
         ivInfoPhoto = findViewById(R.id.ivInfoPhoto);
+        tvName = findViewById(R.id.tvInfoName);
+        tvEmail = findViewById(R.id.tvInfoAccount);
+        tvAddress = findViewById(R.id.tvInfoAddress);
+        tvPhone = findViewById(R.id.tvInfoPhone);
 
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -85,10 +94,49 @@ public class InfoActivity extends AppCompatActivity {
         super.onStart();
 
         Log.i("state", "onstart");
-
+        getInfos();
         Log.i("before", "");
         getPicName();
         Log.i("after", "");
+    }
+
+    private void getInfos() {
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference infoRef = mDatabase.child("costomers").child(User.account);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String email = dataSnapshot.child("email").getValue(String.class);
+                String name = dataSnapshot.child("name").getValue(String.class);
+                String phone = dataSnapshot.child("phone").getValue(String.class);
+                String address = dataSnapshot.child("address").getValue(String.class);
+                if (email != null) {
+                    Log.i("email", email);
+                    tvEmail.setText(tvEmail.getText() + " " + email);
+                }
+                if (name != null) {
+                    Log.i("name", name);
+                    tvName.setText(tvName.getText() +  " " + name);
+                }
+                if (phone != null) {
+                    Log.i("phone", phone);
+                    tvPhone.setText(tvPhone.getText() +  " " + phone);
+                }
+                if (address != null) {
+                    Log.i("address", address);
+                    tvAddress.setText(tvAddress.getText() +  " " + address);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        infoRef.addValueEventListener(postListener);
     }
 
     private void getPicName() {

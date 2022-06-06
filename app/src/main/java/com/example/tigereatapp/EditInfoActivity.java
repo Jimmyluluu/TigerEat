@@ -1,5 +1,7 @@
 package com.example.tigereatapp;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
@@ -32,8 +34,11 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -51,16 +56,16 @@ public class EditInfoActivity extends AppCompatActivity {
     private ImageView ivEditPhoto;
     private ImageView ivPhoto;
     private ImageView ivCamera;
+    private EditText etName;
+    private TextView tvEmail;
+    private EditText etPhone;
+    private EditText etAddress;
     private String imagePath;
     private String imageType = ".jpg";
     private DatabaseReference mDatabase;
     private FirebaseStorage storage;
-    private StorageReference storageRef;
     private Bitmap bitmap = null;
     BitmapFactory.Options bfoOptions = new BitmapFactory.Options();
-    private Thread thread;
-    final Base64.Decoder decoder = Base64.getDecoder();
-    final Base64.Encoder encoder = Base64.getEncoder();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,9 +76,15 @@ public class EditInfoActivity extends AppCompatActivity {
         ivEditPhoto = findViewById(R.id.ivEditInfoPhoto);
         btnConfirm = findViewById(R.id.btnConfirm);
         ivCamera = findViewById(R.id.ivCamera);
+        etName = findViewById(R.id.etEditName);
+        tvEmail = findViewById(R.id.tvShowEmail);
+        etPhone = findViewById(R.id.etEditPhone);
+        etAddress = findViewById(R.id.etEditAddress);
 
         //取得firebase storage
         storage = FirebaseStorage.getInstance();
+
+        getInfos();
 
         ivPhoto.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -117,6 +128,45 @@ public class EditInfoActivity extends AppCompatActivity {
         getStorePermission();
         getCameraPermission();
         Log.i("state", "getPermission");
+    }
+
+    private void getInfos() {
+
+        mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference infoRef = mDatabase.child("costomers").child(User.account);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String email = dataSnapshot.child("email").getValue(String.class);
+                String name = dataSnapshot.child("name").getValue(String.class);
+                String phone = dataSnapshot.child("phone").getValue(String.class);
+                String address = dataSnapshot.child("address").getValue(String.class);
+                if (email != null) {
+                    Log.i("email", email);
+                    tvEmail.setText(email);
+                }
+                if (name != null) {
+                    Log.i("name", name);
+                    etName.setText(name);
+                }
+                if (phone != null) {
+                    Log.i("phone", phone);
+                    etPhone.setText(phone);
+                }
+                if (address != null) {
+                    Log.i("address", address);
+                    etAddress.setText(address);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        infoRef.addValueEventListener(postListener);
     }
 
     private void getStorePermission() {
