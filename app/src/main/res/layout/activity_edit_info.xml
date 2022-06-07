@@ -105,7 +105,8 @@
                     android:inputType="textPersonName"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvInfoAccount"
@@ -127,7 +128,8 @@
                     android:layout_marginRight="10dp"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvInfoPhone"
@@ -153,7 +155,8 @@
                     android:inputType="phone"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/tvInfoAddress"
@@ -179,7 +182,8 @@
                     android:inputType="textPostalAddress"
                     android:paddingLeft="10dp"
                     android:paddingTop="10dp"
-                    android:paddingBottom="10dp" />
+                    android:paddingBottom="10dp"
+                    android:textSize="18sp" />
 
                 <Button
                     android:id="@+id/btnConfirm"

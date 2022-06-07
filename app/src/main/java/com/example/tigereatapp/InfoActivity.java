@@ -3,49 +3,32 @@ package com.example.tigereatapp;
 import static android.content.ContentValues.TAG;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.MediaStore;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 
 public class InfoActivity extends AppCompatActivity {
 
@@ -53,19 +36,26 @@ public class InfoActivity extends AppCompatActivity {
     TextView tvInfoEdit;
     ImageView ivInfoPhoto;
     String picName;
+    private TextView tvName;
+    private TextView tvEmail;
+    private TextView tvPhone;
+    private TextView tvAddress;
+    public boolean edit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info);
 
+        Log.i("state", "oncreate");
+
         tvLogout = findViewById(R.id.tvLogout);
         tvInfoEdit = findViewById(R.id.tvInfoEdit);
         ivInfoPhoto = findViewById(R.id.ivInfoPhoto);
-
-        Log.i("before", "");
-        getPicName();
-        Log.i("after", "");
+        tvName = findViewById(R.id.tvInfoName);
+        tvEmail = findViewById(R.id.tvInfoAccount);
+        tvAddress = findViewById(R.id.tvInfoAddress);
+        tvPhone = findViewById(R.id.tvInfoPhone);
 
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -91,6 +81,7 @@ public class InfoActivity extends AppCompatActivity {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public boolean onTouch(View v, MotionEvent event) {
+                edit = true;
                 Intent intent = new Intent(InfoActivity.this, EditInfoActivity.class);
                 startActivity(intent);
                 return false;
@@ -98,49 +89,80 @@ public class InfoActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        Log.i("state", "onstart");
+        getInfos();
+        Log.i("before", "");
+        getPicName();
+        Log.i("after", "");
+    }
+
+    private void getInfos() {
+
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        DatabaseReference infoRef = mDatabase.child("costomers").child(User.account);
+        ValueEventListener postListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String email = dataSnapshot.child("email").getValue(String.class);
+                String name = dataSnapshot.child("name").getValue(String.class);
+                String phone = dataSnapshot.child("phone").getValue(String.class);
+                String address = dataSnapshot.child("address").getValue(String.class);
+                if (email != null) {
+                    Log.i("email", email);
+                    tvEmail.setText(tvEmail.getText() + " " + email);
+                }
+                if (name != null) {
+                    Log.i("name", name);
+                    tvName.setText(tvName.getText() +  " " + name);
+                }
+                if (phone != null) {
+                    Log.i("phone", phone);
+                    tvPhone.setText(tvPhone.getText() +  " " + phone);
+                }
+                if (address != null) {
+                    Log.i("address", address);
+                    tvAddress.setText(tvAddress.getText() +  " " + address);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
+            }
+        };
+        infoRef.addValueEventListener(postListener);
+    }
+
     private void getPicName() {
 
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        DatabaseReference infoRef = mDatabase.child("email");
+        DatabaseReference infoRef = mDatabase.child("infopic").child(User.account);
+        Log.i("info", infoRef.toString());
 
-        Query picNameQuery = infoRef.orderByValue();
-        picNameQuery.addChildEventListener(new ChildEventListener() {
+        ValueEventListener postListener = new ValueEventListener() {
             @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                Log.i("picName", picName);
-                setPic(picName);
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Get Post object and use the values to update the UI
+                String pic = dataSnapshot.getValue(String.class);
+                String key = dataSnapshot.getKey();
+                Log.i("picname", pic);
+                setPic(pic);
             }
 
             @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildAdded:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                String key = snapshot.getKey();
-                Log.i("picName", picName);
-                setPic(picName);
+            public void onCancelled(DatabaseError databaseError) {
+                // Getting Post failed, log a message
+                Log.w(TAG, "loadPost:onCancelled", databaseError.toException());
             }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-                Log.d(TAG, "onChildRemoved:" + snapshot.getKey());
-                String key = snapshot.getKey();
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                Log.d(TAG, "onChildMoved:" + snapshot.getKey());
-                picName = snapshot.getValue(String.class);
-                String key = snapshot.getKey();
-                Log.i("picName", picName);
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Log.w(TAG, "postComments:onCancelled", error.toException());
-            }
-        });
+        };
+        infoRef.addValueEventListener(postListener);
+        Log.i("finish", "");
     }
 
     private void setPic(String p) {
@@ -149,10 +171,24 @@ public class InfoActivity extends AppCompatActivity {
         //取得firebase storage
         FirebaseStorage storage = FirebaseStorage.getInstance();
         StorageReference imageRef = storage.getReference()
-                .child("images").child(User.name).child(p);
+                .child("images").child(User.account).child(p);
 
-        Glide.with(this)
-                .load(imageRef)
-                .into(ivInfoPhoto);
+        Log.i("", imageRef.toString());
+
+        final long ONE_MEGABYTE = 1024 * 1024;
+        imageRef.getBytes(ONE_MEGABYTE).addOnSuccessListener(new OnSuccessListener<byte[]>() {
+            @Override
+            public void onSuccess(byte[] bytes) {
+                // Data for "images/island.jpg" is returns, use this as needed
+                Bitmap bitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+                ivInfoPhoto.setImageBitmap(bitmap);
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                // Handle any errors
+                exception.printStackTrace();
+            }
+        });
     }
 }
