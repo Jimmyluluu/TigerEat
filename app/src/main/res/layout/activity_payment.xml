@@ -23,7 +23,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="購物車"
+            android:text="選擇付款方式"
             android:textAlignment="center"
             android:textSize="18sp"
             android:textStyle="bold"
