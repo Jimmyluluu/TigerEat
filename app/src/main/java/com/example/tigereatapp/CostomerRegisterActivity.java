@@ -89,6 +89,7 @@ public class CostomerRegisterActivity extends AppCompatActivity implements OnCom
         user.put("email", email);
         user.put("name", name);
         user.put("phone", phone);
+        user.put("address", null);
         infoRef.updateChildren(user);
     }
 }

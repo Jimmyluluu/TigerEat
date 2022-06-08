@@ -114,19 +114,19 @@ public class InfoActivity extends AppCompatActivity {
                 String address = dataSnapshot.child("address").getValue(String.class);
                 if (email != null) {
                     Log.i("email", email);
-                    tvEmail.setText(tvEmail.getText() + " " + email);
+                    tvEmail.setText("電子郵件: " + email);
                 }
                 if (name != null) {
                     Log.i("name", name);
-                    tvName.setText(tvName.getText() +  " " + name);
+                    tvName.setText("姓名: " + name);
                 }
                 if (phone != null) {
                     Log.i("phone", phone);
-                    tvPhone.setText(tvPhone.getText() +  " " + phone);
+                    tvPhone.setText("電話: " + phone);
                 }
                 if (address != null) {
                     Log.i("address", address);
-                    tvAddress.setText(tvAddress.getText() +  " " + address);
+                    tvAddress.setText("地址: " + address);
                 }
             }
 
@@ -151,8 +151,10 @@ public class InfoActivity extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 String pic = dataSnapshot.getValue(String.class);
                 String key = dataSnapshot.getKey();
-                Log.i("picname", pic);
-                setPic(pic);
+                if (pic != null) {
+                    Log.i("picname", pic);
+                    setPic(pic);
+                }
             }
 
             @Override
