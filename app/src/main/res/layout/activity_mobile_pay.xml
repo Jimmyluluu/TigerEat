@@ -185,7 +185,7 @@
                     android:layout_marginRight="10dp"
                     android:layout_marginBottom="10dp"
                     android:minHeight="30dp"
-                    android:text="CVV"
+                    android:text="信用卡安全碼"
                     android:textColor="@color/brown_dark"
                     android:textSize="16sp"
                     android:textStyle="bold"
