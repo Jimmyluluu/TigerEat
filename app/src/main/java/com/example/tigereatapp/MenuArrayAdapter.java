@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -49,6 +50,7 @@ public class MenuArrayAdapter extends ArrayAdapter<Menu> {
         TextView tvDate = itemLayout.findViewById(R.id.foodMoney);
         tvDate.setText(item.getMoney());
 
+        Button tvJoin = itemLayout.findViewById(R.id.join);
         return itemLayout;
 
     }

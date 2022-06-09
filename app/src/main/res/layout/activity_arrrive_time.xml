@@ -39,6 +39,7 @@
             android:textAlignment="center"
             android:textSize="20sp" />
     </LinearLayout>
+
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
@@ -102,5 +103,16 @@
         app:layout_constraintStart_toEndOf="@+id/Search"
         app:layout_constraintTop_toBottomOf="@+id/listview"
         app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/mText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/view3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
