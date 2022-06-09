@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.GridView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,7 +26,18 @@ public class MainActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
-
+    public static final String SHOP_NO = "shop_no";
+    //店名
+    private String[] shopName =  {"茶湯會","珍煮丹","迷克夏","麥當勞","肯德雞"};
+    //店名
+    private String[] shopFee =  {"15","15","20","10","45"};
+    //店名
+    private String[] shopTime =  {"15-20 分鐘","15-20 分鐘","25-30 分鐘","5-15 分鐘","35-45 分鐘"};
+    //店名
+    private String[] shopScore =  {"5","4.9","4.8","4.5","5"};
+    //照片
+    private int[] shopPhoto = {R.drawable.rest1, R.drawable.rest1, R.drawable.rest1,
+            R.drawable.rest1, R.drawable.rest1};
 
 
     @Override
@@ -37,11 +49,11 @@ public class MainActivity extends AppCompatActivity {
         Search = findViewById(R.id.Search);
         Set = findViewById(R.id.Setting);
 
-        String[] str = {"茶湯會","珍煮丹","迷克夏","麥當勞","肯德雞"};
-        ListView listview = (ListView) findViewById(R.id.listview);
-        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, str);
-        listview.setAdapter(adapter);
+
+        HomeItem adapter;
+        adapter = new HomeItem(MainActivity.this, shopName,  shopTime, shopFee, shopScore, shopPhoto);
+        ListView grid = (ListView) findViewById(R.id.listview);
+        grid.setAdapter(adapter);
 
 
 
