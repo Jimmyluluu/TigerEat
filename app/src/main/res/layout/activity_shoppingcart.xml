@@ -164,6 +164,7 @@
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
             android:fontFamily="@font/roboto_bold"
+            android:onClick="gotofinish"
             android:text="確定下單"
             android:textColor="@color/brown_dark"
             android:textSize="18sp"

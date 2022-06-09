@@ -31,6 +31,6 @@ public class ArrriveTimeActivity extends AppCompatActivity {
             }
         }
 
-        showTime.setText(String.valueOf(nowHour) + "點" + String.valueOf(nowMin) + "分");
+        showTime.setText(String.valueOf(nowHour) + "點" + String.valueOf(nowMin) + "分" );
     }
 }

@@ -18,5 +18,9 @@ public class ShoppingcartActivity extends AppCompatActivity {
         Intent intent = new Intent(this, PaymentActivity.class);
         startActivity(intent);
     }
+    public void gotofinish(View view) {
+        Intent intent = new Intent(this, ArrriveTimeActivity.class);
+        startActivity(intent);
+    }
 
 }
