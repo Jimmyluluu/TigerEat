@@ -37,12 +37,10 @@ public class MainActivity extends AppCompatActivity {
         Search = findViewById(R.id.Search);
         Set = findViewById(R.id.Setting);
 
-        String[] str = {"茶湯會","台北市","台中市","台南市","高雄市"};
+        String[] str = {"茶湯會","珍煮丹","迷克夏","麥當勞","肯德雞"};
         ListView listview = (ListView) findViewById(R.id.listview);
         LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        ArrayAdapter adapter = new ArrayAdapter(this,
-                android.R.layout.simple_list_item_1,
-                str);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, str);
         listview.setAdapter(adapter);
 
 
