@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -30,7 +31,8 @@ public class SearchActivity extends AppCompatActivity {
             , R.drawable.rest8, R.drawable.rest9, R.drawable.rest10};
     private String[] names =  {"茶湯會", "鼎王", "瓦城", "烏龍麵所", "鼎泰豐", "公益麵攤", "肯德基"
             , "築間", "壽司郎", "翰林茶坊"};
-
+    GridView gv;
+    SearchView sv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +79,14 @@ public class SearchActivity extends AppCompatActivity {
 
 
         SearchAdapter adapter = new SearchAdapter(SearchActivity.this, names, images);
-        GridView grid = (GridView) findViewById(R.id.grid);
-        grid.setAdapter(adapter);
+        gv = (GridView) findViewById(R.id.grid);
+        gv.setAdapter(adapter);
+
 
     }
 
 
 }
+
+
+
