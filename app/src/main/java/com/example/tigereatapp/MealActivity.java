@@ -4,17 +4,28 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
 public class MealActivity extends AppCompatActivity {
-
+    private Button Home;
+    private Button Shop;
+    private Button Search;
+    private Button Set;
+    private Button RankButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
+
+        Home = findViewById(R.id.Home);
+        Shop = findViewById(R.id.Shopping);
+        Search = findViewById(R.id.Search);
+        Set = findViewById(R.id.Setting);
 
         ListView listView = findViewById(R.id.lv);
         TextView txv = findViewById(R.id.shop_Title);
@@ -22,6 +33,7 @@ public class MealActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
         int no = intent.getIntExtra(MainActivity.SHOP_NO, 0);
+
         switch (no){
             case 0:
                 //先清空
@@ -62,5 +74,39 @@ public class MealActivity extends AppCompatActivity {
         MenuArrayAdapter adapter = new MenuArrayAdapter(this, R.layout.shop_list_layout, menuArrayList);
         listView.setAdapter(adapter);
 
+        Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        MealActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        MealActivity.this, ShoppingcartActivity.class);
+                startActivity(intent);
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        MealActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        MealActivity.this, InfoActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

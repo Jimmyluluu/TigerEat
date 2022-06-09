@@ -68,95 +68,93 @@
         android:id="@+id/button14"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="40dp"
+        android:layout_marginBottom="23dp"
         android:backgroundTint="#E4E4E4"
         android:text="附近餐廳"
         android:textColor="#A08177"
         android:textStyle="bold"
         app:cornerRadius="5dp"
+        app:layout_constraintBottom_toTopOf="@+id/listview"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/RankButton"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="9dp"
+        android:layout_marginTop="8dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listview" />
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1" />
 
     <Button
         android:id="@+id/Home"
         android:layout_width="89dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="550dp"
         android:layout_marginEnd="8dp"
         android:text="主頁"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Shopping"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/RankButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/Shopping"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="550dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="購物車"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Search"
         app:layout_constraintStart_toEndOf="@+id/Home"
-        app:layout_constraintTop_toBottomOf="@+id/RankButton"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/Search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="550dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="搜尋"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Setting"
         app:layout_constraintStart_toEndOf="@+id/Shopping"
-        app:layout_constraintTop_toBottomOf="@+id/button14"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/Setting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="550dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
         android:text="設定"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Search"
-        app:layout_constraintTop_toBottomOf="@+id/button14"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ListView
         android:id="@+id/listview"
-        android:layout_width="409dp"
+        android:layout_width="wrap_content"
         android:layout_height="533dp"
         android:layout_marginTop="1dp"
-        android:layout_marginBottom="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/Home"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/RankButton"
-        tools:layout_editor_absoluteX="1dp" />
+        app:layout_constraintVertical_bias="0.36"
+        tools:layout_editor_absoluteX="0dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
