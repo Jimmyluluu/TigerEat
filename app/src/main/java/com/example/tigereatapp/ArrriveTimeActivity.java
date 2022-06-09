@@ -22,12 +22,12 @@ public class ArrriveTimeActivity extends AppCompatActivity {
 
         int nowHour = mCal.get(Calendar.HOUR);
         int nowMin = mCal.get(Calendar.MINUTE);
-        nowMin = nowMin - 15;
-        if (nowMin < 0) {
-            nowHour = nowHour - 1;
-            nowMin = nowMin + 60;
-            if (nowHour < 0) {
-                nowHour = nowHour + 24;
+        nowMin = nowMin + 15;
+        if (nowMin > 60) {
+            nowHour = nowHour + 1;
+            nowMin = nowMin - 60;
+            if (nowHour == 24) {
+                nowHour = 0;
             }
         }
 
