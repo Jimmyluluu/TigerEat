@@ -64,7 +64,7 @@ public class ShoppingcartActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(
-                        ShoppingcartActivity.this, MainActivity.class);
+                        ShoppingcartActivity.this, SearchActivity.class);
                 startActivity(intent);
             }
         });
