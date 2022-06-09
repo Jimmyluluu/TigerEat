@@ -2,16 +2,14 @@ package com.example.tigereatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class MealActivity extends AppCompatActivity {
@@ -19,6 +17,18 @@ public class MealActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
+
+
+    public void onClick(View view) {
+        Intent it = new Intent(this, ShoppingcartActivity.class);
+        it.putExtra("name1","紅茶");
+        it.putExtra("name2","奶茶");
+        it.putExtra("money1","40");
+        it.putExtra("money2","40");
+        startActivity(it);
+    }
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
@@ -111,4 +121,5 @@ public class MealActivity extends AppCompatActivity {
         });
 
     }
+
 }
