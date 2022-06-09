@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -14,12 +15,20 @@ import java.util.ArrayList;
 public class ChartActivity extends AppCompatActivity {
 
     public static final String SHOP_NO = "shop_no";
+    private Button Home;
+    private Button Shop;
+    private Button Search;
+    private Button Set;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chart);
 
+        Home = findViewById(R.id.Home);
+        Shop = findViewById(R.id.Shopping);
+        Search = findViewById(R.id.Search);
+        Set = findViewById(R.id.Setting);
         ListView listView = findViewById(R.id.lsv);
         ArrayList<Chart> chartList = new ArrayList<>();
 
@@ -39,9 +48,43 @@ public class ChartActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent();
-                intent.setClass(ChartActivity.this, MealActivity.class);
-                intent.putExtra(SHOP_NO, position);
+                Intent it = new Intent();
+                it.setClass(ChartActivity.this, MealActivity.class);
+                it.putExtra(SHOP_NO, position);
+                startActivity(it);
+            }
+        });
+
+
+        Home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        ChartActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        Shop.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        ChartActivity.this, ShoppingcartActivity.class);
+                startActivity(intent);
+            }
+        });
+        Search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        ChartActivity.this, SearchActivity.class);
+                startActivity(intent);
+            }
+        });
+        Set.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        ChartActivity.this, InfoActivity.class);
                 startActivity(intent);
             }
         });
