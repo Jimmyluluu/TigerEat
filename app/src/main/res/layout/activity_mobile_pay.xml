@@ -89,9 +89,10 @@
             android:background="@drawable/edittext_background"
             android:backgroundTint="@color/gray_light"
             android:ems="10"
-            android:hint="    輸入姓名"
+            android:hint="輸入姓名"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:paddingLeft="10dp"
             android:textAlignment="textStart"
             android:textColor="@color/gray_light" />
 
@@ -120,9 +121,10 @@
             android:layout_marginBottom="5dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="    0000-0000-0000-0000"
+            android:hint="0000-0000-0000-0000"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/gray_light"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -162,9 +164,10 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/edittext_background"
                     android:ems="10"
-                    android:hint="    MM/YY"
+                    android:hint="MM/YY"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
+                    android:paddingLeft="10dp"
                     android:textColor="@color/gray_light" />
             </LinearLayout>
 
@@ -197,9 +200,10 @@
                     android:layout_marginRight="10dp"
                     android:background="@drawable/edittext_background"
                     android:ems="10"
-                    android:hint="    ***"
+                    android:hint="***"
                     android:inputType="textPersonName"
                     android:minHeight="48dp"
+                    android:paddingLeft="10dp"
                     android:textColor="@color/gray_light" />
             </LinearLayout>
         </LinearLayout>
@@ -229,9 +233,10 @@
             android:layout_marginBottom="20dp"
             android:background="@drawable/edittext_background"
             android:ems="10"
-            android:hint="    0000"
+            android:hint="0000"
             android:inputType="textPersonName"
             android:minHeight="48dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/gray_light" />
 
         <Button
