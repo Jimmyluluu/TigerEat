@@ -28,7 +28,11 @@ public class MealActivity extends AppCompatActivity {
                 menuArrayList.clear();
                 menuArrayList.add(new Menu(R.drawable.drink1, "鐵觀音奶茶", "$70"));
                 menuArrayList.add(new Menu(R.drawable.drink2, "冬瓜鐵觀音", "65"));
-                menuArrayList.add(new Menu(R.drawable.food3, "三明治", "$80"));
+                menuArrayList.add(new Menu(R.drawable.drink3, "烏龍茶", "40"));
+                menuArrayList.add(new Menu(R.drawable.drink4, "綠茶", "40"));
+                menuArrayList.add(new Menu(R.drawable.drink5, "紅茶", "40"));
+                menuArrayList.add(new Menu(R.drawable.drink6, "珍珠奶茶", "60"));
+
                 txv.setText(" 茶湯會");
                 break;
             case 1:
