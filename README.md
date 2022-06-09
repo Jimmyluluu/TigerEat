@@ -177,13 +177,13 @@
     <td>魯敬元</td>
     <td>D0885995</td>
     <td>Jimmyluluu</td>
-    <td>#20 #40 #66</td>
+    <td>#67 #68</td>
   </tr>
   <tr>
     <td>羅弘翔</td>
     <td>D0745939</td>
     <td>rex06020</td>
-    <td>#67 #68</td>
+    <td>#60 #59 #49 #23 #10</td>
   </tr>
   <tr>
     <td>張子晴</td>
