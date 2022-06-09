@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -16,6 +17,7 @@ public class ArrriveTimeActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
+    private TextView mTextField;
 
     TextView showTime;
     Calendar mCal = Calendar.getInstance();
@@ -30,6 +32,7 @@ public class ArrriveTimeActivity extends AppCompatActivity {
         Search = findViewById(R.id.Search);
         Set = findViewById(R.id.Setting);
         Home = findViewById(R.id.Home);
+        mTextField = findViewById(R.id.mText);
 
         int nowHour = mCal.get(Calendar.HOUR);
         int nowMin = mCal.get(Calendar.MINUTE);
@@ -43,6 +46,18 @@ public class ArrriveTimeActivity extends AppCompatActivity {
         }
 
         showTime.setText(String.valueOf(nowHour) + "點" + String.valueOf(nowMin) + "分" );
+
+        new CountDownTimer(901000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                mTextField.setText("餐點抵達時間剩餘: " + millisUntilFinished / 1000 / 60 + "分鐘");
+            }
+
+            public void onFinish() {
+                mTextField.setText("餐點送達，記得領取您的餐點，並按下主頁。");
+            }
+        }.start();
+
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

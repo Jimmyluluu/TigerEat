@@ -2,10 +2,13 @@ package com.example.tigereatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -16,12 +19,9 @@ public class MealActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
-    private Button RankButton;
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_meal);
-
         Home = findViewById(R.id.Home);
         Shop = findViewById(R.id.Shopping);
         Search = findViewById(R.id.Search);
@@ -74,6 +74,7 @@ public class MealActivity extends AppCompatActivity {
         MenuArrayAdapter adapter = new MenuArrayAdapter(this, R.layout.shop_list_layout, menuArrayList);
         listView.setAdapter(adapter);
 
+
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -108,5 +109,6 @@ public class MealActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 }
