@@ -17,8 +17,10 @@ public class SearchActivity extends AppCompatActivity {
     private Button Search;
     private Button Set;
     private int image[] = {R.drawable.rest1, R.drawable.rest2, R.drawable.rest3, R.drawable.rest4
-            , R.drawable.rest5};
-    private String[] name =  {"茶湯會", "鼎王", "瓦城", "烏龍麵所", "鼎泰豐"};
+            , R.drawable.rest5, R.drawable.rest6, R.drawable.rest7
+            , R.drawable.rest8, R.drawable.rest9, R.drawable.rest10};
+    private String[] name =  {"茶湯會", "鼎王", "瓦城", "烏龍麵所", "鼎泰豐", "公益麵攤", "肯德基"
+            , "築間", "壽司郎", "翰林茶坊"};
     GridView gridView = findViewById(R.id.gv);
 
     @Override

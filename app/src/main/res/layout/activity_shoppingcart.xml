@@ -121,7 +121,7 @@
 
     <Button
         android:id="@+id/Home"
-        android:layout_width="89dp"
+        android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
@@ -134,8 +134,8 @@
 
     <Button
         android:id="@+id/Shopping"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="購物車"
@@ -147,8 +147,8 @@
 
     <Button
         android:id="@+id/Search"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="搜尋"
@@ -160,8 +160,8 @@
 
     <Button
         android:id="@+id/Setting"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="90dp"
+        android:layout_height="44dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:text="設定"
