@@ -51,8 +51,8 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
 
     public void onLogin(View view) {
         /**
-         * account: admin@mail.com
-         * password: 1234567
+         * account: test@mail.com
+         * password: 1111111
          */
 
         email = etCostomerAccount.getText().toString();
