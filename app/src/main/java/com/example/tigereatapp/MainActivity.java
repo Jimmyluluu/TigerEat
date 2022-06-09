@@ -55,6 +55,16 @@ public class MainActivity extends AppCompatActivity {
         ListView grid = (ListView) findViewById(R.id.listview);
         grid.setAdapter(adapter);
 
+        //處理onClick
+        grid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, MealActivity.class);
+                intent.putExtra(SHOP_NO, position);
+                startActivity(intent);
+            }
+        });
 
 
         Home.setOnClickListener(new View.OnClickListener() {
