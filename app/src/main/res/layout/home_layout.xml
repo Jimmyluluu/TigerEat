@@ -58,7 +58,7 @@
                     android:textSize="4sp" />
 
                 <TextView
-                    android:id="@+id/restTime"
+                    android:id="@+id/restFee"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="9"
@@ -77,7 +77,7 @@
                     android:textSize="4sp" />
 
                 <TextView
-                    android:id="@+id/restFee"
+                    android:id="@+id/restTime"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="4"
