@@ -1,7 +1,6 @@
 //用來get 主要餐廳layout的變數
 package com.example.tigereatapp;
 
-import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -70,11 +69,11 @@ public class HomeItem extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.activity_main, null);
-            holder.restName = (TextView) view.findViewById(R.id.restName);
+            holder.restName = (TextView) view.findViewById(R.id.Name);
             holder.restFee = (TextView) view.findViewById(R.id.restFee);
             holder.restTime = (TextView) view.findViewById(R.id.restTime);
-            holder.restScore = (TextView) view.findViewById(R.id.restScore);
-            holder.restImg = (ImageView) view.findViewById(R.id.restImg);
+            holder.restScore = (TextView) view.findViewById(R.id.Score);
+            holder.restImg = (ImageView) view.findViewById(R.id.Img);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();
