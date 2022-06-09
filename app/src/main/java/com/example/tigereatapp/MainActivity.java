@@ -28,16 +28,16 @@ public class MainActivity extends AppCompatActivity {
     private Button Set;
     public static final String SHOP_NO = "shop_no";
     //店名
-    private String[] shopName =  {"茶湯會","珍煮丹","迷克夏","麥當勞","肯德雞"};
-    //店名
+    private String[] shopName =  {"茶湯會","鼎王","瓦城","烏龍麵所","鼎泰豐"};
+    //運費
     private String[] shopFee =  {"15","15","20","10","45"};
-    //店名
+    //運送時間
     private String[] shopTime =  {"15-20 分鐘","15-20 分鐘","25-30 分鐘","5-15 分鐘","35-45 分鐘"};
-    //店名
-    private String[] shopScore =  {"5","4.9","4.8","4.5","5"};
+    //評價
+    private String[] shopScore =  {"5","4.9","4.8","4.5","4"};
     //照片
-    private int[] shopPhoto = {R.drawable.rest1, R.drawable.rest1, R.drawable.rest1,
-            R.drawable.rest1, R.drawable.rest1};
+    private int[] shopPhoto = {R.drawable.rest1, R.drawable.rest2, R.drawable.rest3,
+            R.drawable.rest4, R.drawable.rest5};
 
 
     @Override
