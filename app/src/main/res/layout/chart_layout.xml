@@ -8,14 +8,12 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-
     <ImageView
-        android:id="@+id/restImg"
+        android:id="@+id/img"
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:scaleType="centerCrop"
-        tools:srcCompat="@drawable/rest1" />
-
+        app:srcCompat="@drawable/rest2" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,10 +21,10 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/restName"
+            android:id="@+id/name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="15"
+            android:layout_weight="16"
             android:layout_marginLeft="5dp"
             android:text="茶湯會"
             android:textColor="#5E5E5E"
@@ -34,7 +32,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/reatScore"
+            android:id="@+id/score"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="3dp"
@@ -46,7 +44,6 @@
             android:textColor="#FFFFFF"
             android:textSize="14sp"
             android:textStyle="bold" />
-
     </LinearLayout>
 
 </LinearLayout>
