@@ -14,8 +14,10 @@
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_info.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_main_page.xml" value="0.3416666666666667" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_meal.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_order_lists.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_payment.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_search.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/chart_layout.xml" value="0.36614583333333334" />
         <entry key="..\:/Users/USER/AndroidStudioProjects/TigerEat/app/src/main/res/layout/chartlayout.xml" value="0.36614583333333334" />
@@ -29,28 +31,12 @@
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_login.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_main_page.xml" value="0.19630192502532928" />
-        <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_meal.xml" value="0.1" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_order_lists.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_payment.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_shoppingcart.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.19630192502532928" />
-        <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/chart_layout.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/home_layout.xml" value="0.19630192502532928" />
         <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/order_list_rough_item.xml" value="0.19630192502532928" />
-<<<<<<< HEAD
-        <entry key="..\:/Users/luu11/Desktop/TigerEat/app/src/main/res/layout/shop_list_layout.xml" value="0.4" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/drawable/ic_baseline_star_24.xml" value="0.22" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_edit_info.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_info.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_login.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_main.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_payment.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/activity_welcome.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/home_layout.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/layout/order_list_rough_item.xml" value="0.21302083333333333" />
-        <entry key="..\:/Users/luu11/Downloads/TigerEat/app/src/main/res/menu/bottom_nav.xml" value="0.4036458333333333" />
-=======
->>>>>>> 530fc8a597f6f8231d2406ca5a2f64f92d2a407a
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.19" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/character_corner.xml" value="0.1" />
         <entry key="..\:/skills/courses/mobil/TigerEat/app/src/main/res/drawable/circle.xml" value="0.1" />
@@ -103,7 +89,6 @@
         <entry key="app/src/main/res/layout/activity_shoppingcart.xml" value="0.3" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.1671195652173913" />
         <entry key="app/src/main/res/layout/home_layout.xml" value="0.3" />
-        <entry key="app/src/main/res/layout/order_list_rough_item.xml" value="0.10309017223910841" />
         <entry key="app/src/main/res/menu/bottom_nav.xml" value="0.30052083333333335" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.304" />
       </map>
