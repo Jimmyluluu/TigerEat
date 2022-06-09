@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TigerEatApp">
         <activity
+            android:name=".ShopClosedActivity"
+            android:exported="false" />
+        <activity
             android:name=".BeforehandOrderActivity"
             android:exported="false" />
         <activity
