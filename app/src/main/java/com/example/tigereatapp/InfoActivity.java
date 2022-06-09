@@ -34,6 +34,7 @@ public class InfoActivity extends AppCompatActivity {
 
     TextView tvLogout;
     TextView tvInfoEdit;
+    TextView tvAllOrderLists;
     ImageView ivInfoPhoto;
     String picName;
     private TextView tvName;
@@ -56,6 +57,7 @@ public class InfoActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tvInfoAccount);
         tvAddress = findViewById(R.id.tvInfoAddress);
         tvPhone = findViewById(R.id.tvInfoPhone);
+        tvAllOrderLists = findViewById(R.id.tvOrderLists);
 
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -72,6 +74,15 @@ public class InfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(
                         InfoActivity.this, WelcomeActivity.class).
                         setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                return false;
+            }
+        });
+
+        tvAllOrderLists.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent intent = new Intent(InfoActivity.this, AllOrderListsActivity.class);
                 startActivity(intent);
                 return false;
             }
