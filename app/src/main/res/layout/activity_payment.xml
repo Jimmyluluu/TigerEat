@@ -67,24 +67,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/orange"
-<<<<<<< HEAD
-            android:onClick="cachPay"
-=======
->>>>>>> 25325bbf0dd7282135332935e0754d86ff0537a0
-            android:text="現金交易"
-            android:textColor="@color/brown_dark"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:strokeColor="@color/brown_light"
-            app:strokeWidth="2sp" />
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="已選擇現金交易"
-            android:textAlignment="textEnd" />
+            android:text="現金交易" />
 
         <Button
             android:id="@+id/mobilePayment"
@@ -111,7 +94,18 @@
             app:layout_constraintStart_toStartOf="parent"
             app:strokeColor="@color/brown_light"
             app:strokeWidth="2sp" />
-    </LinearLayout>
+    </LinearLayout><![CDATA[=======
+>>>>>>> 25325bbf0dd7282135332935e0754d86ff0537a0
+            android:text="現金交易"
+            android:textColor="@color/brown_dark"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:strokeColor="@color/brown_light"
+            app:strokeWidth="2sp" />
+
+        ]]>
+
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
