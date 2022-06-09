@@ -35,6 +35,7 @@ public class MealActivity extends AppCompatActivity {
         String[] shopMoney =  {"70", "65", "40", "40", "40", "60"};
         int[] shopImg =  {R.drawable.drink1, R.drawable.drink2,R.drawable.drink3,R.drawable.drink4, R.drawable.drink5, R.drawable.drink6};
 
+
         ListView listView = findViewById(R.id.lv);
         TextView txv = findViewById(R.id.shop_Title);
         ArrayList<Menu> menuArrayList = new ArrayList<Menu>();

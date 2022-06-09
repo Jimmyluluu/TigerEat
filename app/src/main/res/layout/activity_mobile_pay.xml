@@ -247,6 +247,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginRight="80dp"
             android:backgroundTint="@color/orange"
+            android:onClick="onClick2"
             android:text="確定"
             android:textColor="@color/brown_dark"
             android:textStyle="bold"
