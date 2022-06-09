@@ -17,16 +17,10 @@ public class MealActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
+    private String name;
+    private String money;
 
 
-    public void onClick(View view) {
-        Intent it = new Intent(this, ShoppingcartActivity.class);
-        it.putExtra("name1","紅茶");
-        it.putExtra("name2","奶茶");
-        it.putExtra("money1","40");
-        it.putExtra("money2","40");
-        startActivity(it);
-    }
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +30,10 @@ public class MealActivity extends AppCompatActivity {
         Shop = findViewById(R.id.Shopping);
         Search = findViewById(R.id.Search);
         Set = findViewById(R.id.Setting);
+
+        String[] shopName =  {"鐵觀音奶茶", "冬瓜鐵觀音", "烏龍茶", "綠茶", "紅茶", "珍珠奶茶"};
+        String[] shopMoney =  {"70", "65", "40", "40", "40", "60"};
+        int[] shopImg =  {R.drawable.drink1, R.drawable.drink2,R.drawable.drink3,R.drawable.drink4, R.drawable.drink5, R.drawable.drink6};
 
         ListView listView = findViewById(R.id.lv);
         TextView txv = findViewById(R.id.shop_Title);
@@ -48,12 +46,11 @@ public class MealActivity extends AppCompatActivity {
             case 0:
                 //先清空
                 menuArrayList.clear();
-                menuArrayList.add(new Menu(R.drawable.drink1, "鐵觀音奶茶", "$70"));
-                menuArrayList.add(new Menu(R.drawable.drink2, "冬瓜鐵觀音", "65"));
-                menuArrayList.add(new Menu(R.drawable.drink3, "烏龍茶", "40"));
-                menuArrayList.add(new Menu(R.drawable.drink4, "綠茶", "40"));
-                menuArrayList.add(new Menu(R.drawable.drink5, "紅茶", "40"));
-                menuArrayList.add(new Menu(R.drawable.drink6, "珍珠奶茶", "60"));
+                for (int i = 0; i < 6; i ++) {
+                    menuArrayList.add(new Menu(shopImg[i], shopName[i], shopMoney[i]));
+                    name = shopName[i];
+                    money = shopMoney[i];
+                }
 
                 txv.setText(" 茶湯會");
                 break;
@@ -120,6 +117,13 @@ public class MealActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    public void onClick(View view) {
+        Intent it = new Intent(this, ShoppingcartActivity.class);
+        it.putExtra("name1",name);
+        it.putExtra("money1",money);
+        startActivity(it);
     }
 
 }

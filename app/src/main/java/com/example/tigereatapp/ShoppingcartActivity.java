@@ -35,15 +35,15 @@ public class ShoppingcartActivity extends AppCompatActivity {
         order = findViewById(R.id.order);
         Intent it = getIntent();
         String inp1 = it.getStringExtra("name1");
-        String inp2 = it.getStringExtra("name2");
+
         String inp3 = it.getStringExtra("money1");
-        String inp4 = it.getStringExtra("money2");
+
         //店名
-        String[] shopName =  {inp1, inp2};
+        String[] shopName =  {inp1};
         //運費
-        String[] shopstrings =  {"1","1"};
+        String[] shopstrings =  {"1"};
         //money
-        String[] shopMoney =  {inp3, inp4};
+        String[] shopMoney =  {inp3};
 
         TextView txv = findViewById(R.id.shop);
         TextView monenyTotal = findViewById(R.id.money_total);
