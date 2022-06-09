@@ -155,7 +155,7 @@
     <td>張子晴</td>
     <td>D0843778</td>
     <td>chingggg</td>
-    <td>#15 #41 #45</td>
+    <td>#35 #41 #37</td>
   </tr>
     <tr>
     <td>鍾旻倢</td>
