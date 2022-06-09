@@ -1,4 +1,4 @@
-/*package com.example.tigereatapp;
+package com.example.tigereatapp;
 
 public class chartLayout {
     private int img;
@@ -23,4 +23,3 @@ public class chartLayout {
         return score;
     }
 }
-*/

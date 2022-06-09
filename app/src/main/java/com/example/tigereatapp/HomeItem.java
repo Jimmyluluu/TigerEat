@@ -73,11 +73,11 @@ public class HomeItem extends BaseAdapter {
         if (view == null) {
             holder = new ViewHolder();
             view = inflater.inflate(R.layout.activity_main, null);
-            holder.restName = (TextView) view.findViewById(R.id.Name);
+            holder.restName = (TextView) view.findViewById(R.id.restName);
             holder.restFee = (TextView) view.findViewById(R.id.restFee);
             holder.restTime = (TextView) view.findViewById(R.id.restTime);
-            holder.restScore = (TextView) view.findViewById(R.id.Score);
-            holder.restImg = (ImageView) view.findViewById(R.id.Img);
+            holder.restScore = (TextView) view.findViewById(R.id.reatScore);
+            holder.restImg = (ImageView) view.findViewById(R.id.restImg);
             view.setTag(holder);
         } else {
             holder = (ViewHolder) view.getTag();

@@ -1,3 +1,4 @@
+//排行榜
 package com.example.tigereatapp;
 
 import androidx.appcompat.app.AppCompatActivity;
