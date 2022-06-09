@@ -18,6 +18,9 @@
             android:name=".MobilePayActivity"
             android:exported="false" />
         <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
             android:name=".MealActivity"
             android:exported="false" />
         <activity
