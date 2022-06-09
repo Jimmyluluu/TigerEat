@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
     //運送時間
     private String[] shopTime =  {"15-20 分鐘","15-20 分鐘","25-30 分鐘","5-15 分鐘","35-45 分鐘"};
     //評價
-    private String[] shopScore =  {"5","4.9","4.8","4.5","4"};
+    private String[] shopScore =  {"5.0","4.9","4.8","4.5","4.0"};
     //照片
     private int[] shopPhoto = {R.drawable.rest1, R.drawable.rest2, R.drawable.rest3,
             R.drawable.rest4, R.drawable.rest5};

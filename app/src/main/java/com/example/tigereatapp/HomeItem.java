@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class HomeItem extends BaseAdapter {
@@ -21,6 +22,15 @@ public class HomeItem extends BaseAdapter {
     private final String[] resScore;
     private final int[] resImg;
 
+    /*static class ViewHolder{
+        LinearLayout rlBorder;
+        TextView reName;
+        TextView reFee;
+        TextView reTime;
+        TextView reScore;
+        ImageView reImg;
+
+    }*/
 
     //初始化
     public HomeItem(Context context, String[] resName, String[] resTime, String[] resFee, String[] resScore, int[] resImg) {
@@ -34,7 +44,7 @@ public class HomeItem extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return resName.length;
+        return resFee.length;
     }
 
     @Override
@@ -49,28 +59,27 @@ public class HomeItem extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View holder;
+        //ViewHolder holder;
+        View girp;
         LayoutInflater layoutInflater =
                 (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        //當ListView被拖拉時會不斷觸發getView，為了避免重複加載必須加上這個判斷
 
         if (convertView == null) {
-            holder = new View(context);
-            holder = layoutInflater.inflate(R.layout.home_layout, null);
-            TextView reName = (TextView) holder.findViewById(R.id.restName);
-            TextView reFee = (TextView) holder.findViewById(R.id.restFee);
-            TextView reTime = (TextView) holder.findViewById(R.id.restTime);
-            TextView reScore = (TextView) holder.findViewById(R.id.reatScore);
-            ImageView reImg = (ImageView) holder.findViewById(R.id.restImg);
+            girp = new View(context);
+            girp = layoutInflater.inflate(R.layout.home_layout, null);
+            TextView reName = (TextView) girp.findViewById(R.id.restName);
+            TextView reFee = (TextView) girp.findViewById(R.id.restFee);
+            TextView reTime = (TextView) girp.findViewById(R.id.restTime);
+            TextView reScore = (TextView) girp.findViewById(R.id.reatScore);
+            ImageView reImg = (ImageView) girp.findViewById(R.id.restImg);
             reName.setText(resName[position]);
             reFee.setText(resFee[position]);
             reTime.setText(resTime[position]);
             reScore.setText(resScore[position]);
             reImg.setImageResource(resImg[position]);
         } else {
-            holder = (View) convertView;
+            girp = (View) convertView;
         }
-        return holder;
-
+        return girp;
     }
 }
