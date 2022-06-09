@@ -117,7 +117,7 @@ public class LoginActivity extends AppCompatActivity implements OnCompleteListen
             User.account = stringBuffer.toString();
             User.userState = UserState.COSTOMER_USER;
 
-            Intent intent = new Intent(LoginActivity.this, InfoActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         } else {
             Toast.makeText(this, "登入失敗", Toast.LENGTH_LONG)

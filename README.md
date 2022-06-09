@@ -10,8 +10,8 @@
   <tr>
     <td>魯敬元</td>
     <td>D0885995</td>
-    <td>Jimmyluluu</td>
-  </tr>
+    <td>Jimmyluluu luuuuu123456</td>
+  </tr> 
   <tr>
     <td>羅弘翔</td>
     <td>D0745939</td>
@@ -155,7 +155,7 @@
     <td>張子晴</td>
     <td>D0843778</td>
     <td>chingggg</td>
-    <td>#15 #41 #45</td>
+    <td>#35 #41 #37</td>
   </tr>
     <tr>
     <td>鍾旻倢</td>
@@ -177,7 +177,7 @@
     <td>魯敬元</td>
     <td>D0885995</td>
     <td>Jimmyluluu</td>
-    <td>#20 #40 #66</td>
+    <td>#63 #67 #68</td>
   </tr>
   <tr>
     <td>羅弘翔</td>

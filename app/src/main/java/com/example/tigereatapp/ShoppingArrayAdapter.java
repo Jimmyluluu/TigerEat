@@ -1,26 +1,28 @@
-//用來get 主要餐廳layout的變數
 package com.example.tigereatapp;
 
-
 import android.content.Context;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-public class HomeItem extends BaseAdapter {
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.List;
+
+public class ShoppingArrayAdapter extends BaseAdapter {
 
     private final Context context;
 
     private final String[] resName;
-    private final String[] resTime;
-    private final String[] resFee;
-    private final String[] resScore;
-    private final int[] resImg;
+    private final String[] resSuit;
+    private final String[] resMoney;
+
 
     /*static class ViewHolder{
         LinearLayout rlBorder;
@@ -33,18 +35,16 @@ public class HomeItem extends BaseAdapter {
     }*/
 
     //初始化
-    public HomeItem(Context context, String[] resName, String[] resTime, String[] resFee, String[] resScore, int[] resImg) {
+    public ShoppingArrayAdapter(Context context, String[] resName, String[] resSuit, String[] resMoney) {
         this.context = context;
         this.resName = resName;
-        this.resTime = resTime;
-        this.resFee = resFee;
-        this.resScore = resScore;
-        this.resImg = resImg;
+        this.resSuit = resSuit;
+        this.resMoney = resMoney;
     }
 
     @Override
     public int getCount() {
-        return resFee.length;
+        return resSuit.length;
     }
 
     @Override
@@ -66,17 +66,15 @@ public class HomeItem extends BaseAdapter {
 
         if (convertView == null) {
             girp = new View(context);
-            girp = layoutInflater.inflate(R.layout.home_layout, null);
-            TextView reName = (TextView) girp.findViewById(R.id.restName);
-            TextView reFee = (TextView) girp.findViewById(R.id.restFee);
-            TextView reTime = (TextView) girp.findViewById(R.id.restTime);
-            TextView reScore = (TextView) girp.findViewById(R.id.reatScore);
-            ImageView reImg = (ImageView) girp.findViewById(R.id.restImg);
+            girp = layoutInflater.inflate(R.layout.shopping_car_layout, null);
+            TextView reName = (TextView) girp.findViewById(R.id.meal);
+            TextView reFee = (TextView) girp.findViewById(R.id.serving);
+            TextView reTime = (TextView) girp.findViewById(R.id.meal_money);
+
             reName.setText(resName[position]);
-            reFee.setText(resFee[position]);
-            reTime.setText(resTime[position]);
-            reScore.setText(resScore[position]);
-            reImg.setImageResource(resImg[position]);
+            reFee.setText(resSuit[position]);
+            reTime.setText(resMoney[position]);
+
         } else {
             girp = (View) convertView;
         }

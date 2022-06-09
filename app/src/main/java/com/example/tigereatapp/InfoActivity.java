@@ -34,6 +34,7 @@ public class InfoActivity extends AppCompatActivity {
 
     TextView tvLogout;
     TextView tvInfoEdit;
+    TextView tvAllOrderLists;
     ImageView ivInfoPhoto;
     String picName;
     private TextView tvName;
@@ -56,6 +57,7 @@ public class InfoActivity extends AppCompatActivity {
         tvEmail = findViewById(R.id.tvInfoAccount);
         tvAddress = findViewById(R.id.tvInfoAddress);
         tvPhone = findViewById(R.id.tvInfoPhone);
+        tvAllOrderLists = findViewById(R.id.tvOrderLists);
 
         tvLogout.setOnTouchListener(new View.OnTouchListener() {
             @Override
@@ -72,6 +74,15 @@ public class InfoActivity extends AppCompatActivity {
                 Intent intent = new Intent(
                         InfoActivity.this, WelcomeActivity.class).
                         setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+                return false;
+            }
+        });
+
+        tvAllOrderLists.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                Intent intent = new Intent(InfoActivity.this, AllOrderListsActivity.class);
                 startActivity(intent);
                 return false;
             }
@@ -114,19 +125,19 @@ public class InfoActivity extends AppCompatActivity {
                 String address = dataSnapshot.child("address").getValue(String.class);
                 if (email != null) {
                     Log.i("email", email);
-                    tvEmail.setText(tvEmail.getText() + " " + email);
+                    tvEmail.setText("電子郵件: " + email);
                 }
                 if (name != null) {
                     Log.i("name", name);
-                    tvName.setText(tvName.getText() +  " " + name);
+                    tvName.setText("姓名: " + name);
                 }
                 if (phone != null) {
                     Log.i("phone", phone);
-                    tvPhone.setText(tvPhone.getText() +  " " + phone);
+                    tvPhone.setText("電話: " + phone);
                 }
                 if (address != null) {
                     Log.i("address", address);
-                    tvAddress.setText(tvAddress.getText() +  " " + address);
+                    tvAddress.setText("地址: " + address);
                 }
             }
 
@@ -151,8 +162,10 @@ public class InfoActivity extends AppCompatActivity {
                 // Get Post object and use the values to update the UI
                 String pic = dataSnapshot.getValue(String.class);
                 String key = dataSnapshot.getKey();
-                Log.i("picname", pic);
-                setPic(pic);
+                if (pic != null) {
+                    Log.i("picname", pic);
+                    setPic(pic);
+                }
             }
 
             @Override

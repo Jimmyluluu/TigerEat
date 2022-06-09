@@ -5,51 +5,44 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/yellow"
-    tools:context=".ArrriveTimeActivity">
+    tools:context=".MealActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:background="@drawable/rectangle_title"
-        android:orientation="vertical"
+
+    <TextView
+        android:id="@+id/shop_Title"
+        android:layout_width="350dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="16dp"
+        android:background="#FFFFFF"
+        android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="預計送達時間"
-            android:textAlignment="center"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/showTime"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="TextView"
-            android:textAlignment="center"
-            android:textSize="20sp" />
-    </LinearLayout>
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="350dp"
+        android:layout_height="620dp"
+        android:layout_marginTop="12dp"
+        android:background="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shop_Title" />
 
     <View
         android:id="@+id/view3"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:background="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1" />
 
     <Button
@@ -57,12 +50,13 @@
         android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="13dp"
         android:layout_marginEnd="8dp"
         android:text="主頁"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Shopping"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -70,12 +64,13 @@
         android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="8dp"
         android:text="購物車"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Search"
         app:layout_constraintStart_toEndOf="@+id/Home"
-        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -83,12 +78,13 @@
         android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="8dp"
         android:text="搜尋"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/Setting"
         app:layout_constraintStart_toEndOf="@+id/Shopping"
-        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
@@ -96,23 +92,13 @@
         android:layout_width="90dp"
         android:layout_height="44dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="9dp"
         android:layout_marginEnd="8dp"
         android:text="設定"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Search"
-        app:layout_constraintTop_toBottomOf="@+id/listview"
+        app:layout_constraintTop_toBottomOf="@+id/lv"
         app:layout_constraintVertical_bias="1.0" />
-
-    <TextView
-        android:id="@+id/mText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TextView"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/view3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

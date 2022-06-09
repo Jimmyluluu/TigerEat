@@ -15,6 +15,30 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TigerEatApp">
         <activity
+            android:name=".ShopClosedActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BeforehandOrderActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MobilePayActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SearchActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MealActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ChartActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AllOrderListsActivity"
+            android:exported="false" />
+        <activity
             android:name=".PaymentActivity"
             android:exported="false" />
         <activity
@@ -22,9 +46,7 @@
             android:exported="false" />
         <activity
             android:name=".ArrriveTimeActivity"
-            android:exported="true" >
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".CostomerRegisterActivity"
             android:exported="false"
@@ -36,14 +58,8 @@
             android:name=".InfoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:exported="false" />
-        <activity
             android:name=".LoginActivity"
-            android:exported="true">
-
-        </activity>
-
+            android:exported="true" />
         <activity
             android:name=".WelcomeActivity"
             android:exported="true">

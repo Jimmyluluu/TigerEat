@@ -48,6 +48,9 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
 public class EditInfoActivity extends AppCompatActivity {
@@ -112,10 +115,7 @@ public class EditInfoActivity extends AppCompatActivity {
         btnConfirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText etName = findViewById(R.id.etEditName);
-                TextView tvEmail = findViewById(R.id.tvShowEmail);
-                EditText etPhone = findViewById(R.id.etEditPhone);
-                EditText etAddress = findViewById(R.id.etEditAddress);
+                setInfo();
                 finish();
             }
         });
@@ -167,6 +167,23 @@ public class EditInfoActivity extends AppCompatActivity {
             }
         };
         infoRef.addValueEventListener(postListener);
+    }
+
+    private void setInfo() {
+
+        try {
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            DatabaseReference infoRef = mDatabase.child("costomers").child(User.account);
+
+            Map<String, Object> user = new HashMap<>();
+            user.put("email", String.valueOf(tvEmail.getText()));
+            user.put("name", String.valueOf(etName.getText()));
+            user.put("phone", String.valueOf(etPhone.getText()));
+            user.put("address", String.valueOf(etAddress.getText()));
+            infoRef.updateChildren(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void getStorePermission() {
