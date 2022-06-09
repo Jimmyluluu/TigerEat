@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Button Shop;
     private Button Search;
     private Button Set;
+    private Button RankButton;
     public static final String SHOP_NO = "shop_no";
     //店名
     private String[] shopName =  {"茶湯會","鼎王","瓦城","烏龍麵所","鼎泰豐"};
@@ -48,7 +49,8 @@ public class MainActivity extends AppCompatActivity {
         Shop = findViewById(R.id.Shopping);
         Search = findViewById(R.id.Search);
         Set = findViewById(R.id.Setting);
-
+        Home = findViewById(R.id.Home);
+        RankButton = findViewById(R.id.RankButton);
 
         HomeItem adapter;
         adapter = new HomeItem(MainActivity.this, shopName,  shopTime, shopFee, shopScore, shopPhoto);
@@ -66,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        RankButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(
+                        MainActivity.this, ChartActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Home.setOnClickListener(new View.OnClickListener() {
             @Override
