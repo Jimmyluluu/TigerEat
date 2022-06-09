@@ -177,7 +177,7 @@
     <td>魯敬元</td>
     <td>D0885995</td>
     <td>Jimmyluluu</td>
-    <td>#67 #68</td>
+    <td>#63 #67 #68</td>
   </tr>
   <tr>
     <td>羅弘翔</td>
